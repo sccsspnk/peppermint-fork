@@ -19,7 +19,7 @@ module.exports = {
   ],
   defaultLocale: "en",
   pages: {
-    "*": ["peppermint"],
+    "*": ["common"],
     "/auth/login": ["auth_login"],
   },
   localeDetection: true,
