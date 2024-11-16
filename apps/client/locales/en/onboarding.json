@@ -1,0 +1,32 @@
+{
+  "page": {
+    "title": "Peppermint",
+    "subtitle": "Welcome to {{product_name}}! An open-source ticket management system"
+  },
+  "table": {
+    "github": {
+      "title": "Github",
+      "subtitle": "As we are an open-source project, all of our source code can be found here. If you encounter a bug or are unsure about something",
+      "icon": "/github.svg",
+      "button": "View",
+      "button_link": "https://github.com/Peppermint-Lab/peppermint"
+    },
+    "docs": {
+      "title": "Docs",
+      "subtitle": "Documentation for {{product_name}} can be found here. If you find something undocumented, feel free to open a PR or Issue. We will take care of it right away",
+      "icon": "/logo.svg",
+      "button": "View",
+      "button_link": "https://github.com/Peppermint-Lab/peppermint"
+    },
+    "discord": {
+      "title": "Discord",
+      "subtitle": "Join our Discord server to get help from the community or developers. A great place to hang out",
+      "icon": "/discord.svg",
+      "button": "View",
+      "button_link": "https://discord.gg/zbTy8nuHnK"
+    }
+  },
+  "buttons": {
+    "to_dashboard": "Go to Dashboard"
+  }
+}

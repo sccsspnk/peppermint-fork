@@ -35,19 +35,19 @@ export default function PortalLayout({ children }: any) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert("You do not have the correct perms for that action.");
+    alert(t("_layout_portal:warns.not_have_perms"));
   }
 
   const navigation = [
     {
-      name: t("create_ticket"),
+      name: t("_layout_portal:menu.create_ticket"),
       href: `/${locale}/portal/new`,
       icon: PlusIcon,
       current: location.pathname === "/new" ? true : false,
       initial: "c",
     },
     {
-      name: t("sl_dashboard"),
+      name: t("_layout_portal:menu.dashboard"),
       href: `/${locale}/portal`,
       icon: HomeIcon,
       current: location.pathname === "/" ? true : false,
@@ -158,7 +158,9 @@ export default function PortalLayout({ children }: any) {
                         className="-m-2.5 p-2.5"
                         onClick={() => setSidebarOpen(false)}
                       >
-                        <span className="sr-only">Close sidebar</span>
+                        <span className="sr-only">
+                          {t("common:nav.sidebar.close")}
+                        </span>
                         <XMarkIcon
                           className="h-6 w-6 text-white"
                           aria-hidden="true"
@@ -172,7 +174,7 @@ export default function PortalLayout({ children }: any) {
                       {/* <img className="h-8 w-auto" src="/logo.svg" alt="Workflow" /> */}
                       <Link href="https://peppermint.sh">
                         <span className="text-3xl ml-2  hover:text-green-600 font-bold ">
-                          Peppermint
+                          {t("common:main.product_name")}
                         </span>
                       </Link>
                     </div>
@@ -218,7 +220,7 @@ export default function PortalLayout({ children }: any) {
                               className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                               aria-hidden="true"
                             />
-                            Settings
+                            {t("_layout_portal:menu.settings")}
                           </a>
                         </li>
                       </ul>
@@ -238,7 +240,7 @@ export default function PortalLayout({ children }: any) {
               {/* <img className="h-8 w-auto" src="/logo.svg" alt="Workflow" /> */}
               <Link href="https://peppermint.sh">
                 <span className="text-3xl ml-2  hover:text-green-600 font-bold ">
-                  Peppermint
+                  {t("common:main.product_name")}
                 </span>
               </Link>
             </div>
@@ -282,7 +284,9 @@ export default function PortalLayout({ children }: any) {
                           )}
                         >
                           <TicketIcon className="h-4 w-4 shrink-0 mt-1" />
-                          <span className="whitespace-nowrap">Issues</span>
+                          <span className="whitespace-nowrap">
+                            {t("_layout_portal:menu.issues.title")}
+                          </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
                               t
@@ -300,7 +304,9 @@ export default function PortalLayout({ children }: any) {
                             "group -mx-2 flex gap-x-3 p-1 mll-2 text-xs font-semibold leading-6"
                           )}
                         >
-                          <span className="whitespace-nowrap">open</span>
+                          <span className="whitespace-nowrap">
+                            {t("_layout_portal:menu.issues.open")}
+                          </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
                               o
@@ -319,7 +325,9 @@ export default function PortalLayout({ children }: any) {
                             "group -mx-2 flex gap-x-3 p-1 text-xs font-semibold leading-6"
                           )}
                         >
-                          <span className="whitespace-nowrap">closed</span>
+                          <span className="whitespace-nowrap">
+                            {t("_layout_portal:menu.issues.closed")}
+                          </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
                               f
@@ -342,7 +350,7 @@ export default function PortalLayout({ children }: any) {
               className="-m-2.5 p-2.5 text-black dark:text-white lg:hidden"
               onClick={() => setSidebarOpen(true)}
             >
-              <span className="sr-only">Open sidebar</span>
+              <span className="sr-only">{t("common:nav.sidebar.open")}</span>
               <Bars3Icon
                 className="h-6 w-6 text-black dark:text-white"
                 aria-hidden="true"
@@ -388,7 +396,7 @@ export default function PortalLayout({ children }: any) {
                               "block px-3 text-left text-sm font-bold h-full p-2 w-full rounded-md text-gray-900"
                             )}
                           >
-                            {t("logout")}
+                            {t("_layout_portal:account_dropdown.logout")}
                           </button>
                         )}
                       </Menu.Item>

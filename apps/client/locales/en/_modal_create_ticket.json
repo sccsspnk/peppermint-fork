@@ -1,0 +1,29 @@
+{
+  "info": {
+    "success": {
+      "title": "Success",
+      "desc": "Ticket created successfully"
+    }
+  },
+  "errors": {
+    "unknown": {
+      "title": "Error"
+    }
+  },
+  "form": {
+    "title": "New Request",
+    "placeholders": {
+      "title": "Request Title",
+      "name": "Ticket Name",
+      "body": "Request Body"
+    },
+    "buttons": {
+      "close": "Cancel",
+      "create_ticket": "Create Ticket"
+    },
+    "dropdowns": {
+      "select_client": "Select Client",
+      "select_engineer": "Select Engineer"
+    }
+  }
+}

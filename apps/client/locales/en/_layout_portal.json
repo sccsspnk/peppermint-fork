@@ -1,0 +1,18 @@
+{
+  "warns": {
+    "not_have_perms": "You do not have permission to perform this action"
+  },
+  "menu": {
+    "create_ticket": "Create Ticket",
+    "dashboard": "Dashboard",
+    "issues": {
+      "title": "Requests",
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "settings": "Settings"
+  },
+  "account_dropdown": {
+    "logout": "Log Out"
+  }
+}

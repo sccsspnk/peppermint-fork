@@ -1,0 +1,26 @@
+{
+  "page": {
+    "title": "Welcome to {{product_name}}"
+  },
+  "buttons": {
+    "sign_in": "Sign In",
+    "sign_in_via_oidc": "Sign In via OIDC"
+  },
+  "links": {
+    "forgot_password": "Forgot your password?"
+  },
+  "errors": {
+    "unknown": {
+      "title": "Error",
+      "desc": "An error occurred while signing in, please try again. If the problem persists, please contact support via Discord"
+    },
+    "database": {
+      "title": "Database Error",
+      "desc": "There is an issue with the database, please check the Docker logs or contact support via Discord"
+    },
+    "account_sso": {
+      "title": "SSO Login Error",
+      "desc": "It looks like you tried to use SSO with a non-existent account. Please try again or contact your administrator to set up your account first"
+    }
+  }
+}

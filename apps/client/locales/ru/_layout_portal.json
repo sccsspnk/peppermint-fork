@@ -1,0 +1,18 @@
+{
+  "warns": {
+    "not_have_perms": "У вас нет прав на выполнение этого действия"
+  },
+  "menu": {
+    "create_ticket": "Создать тикет",
+    "dashboard": "Панель",
+    "issues": {
+      "title": "Обращения",
+      "open": "Открытые",
+      "closed": "Закрытые"
+    },
+    "settings": "Настройки"
+  },
+  "account_dropdown": {
+    "logout": "Выйти"
+  }
+}

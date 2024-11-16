@@ -162,7 +162,9 @@ export default function NewLayout({ children }: any) {
                         className="-m-2.5 p-2.5"
                         onClick={() => setSidebarOpen(false)}
                       >
-                        <span className="sr-only">Close sidebar</span>
+                        <span className="sr-only">
+                          {t("common:nav.sidebar.close")}
+                        </span>
                         <XMarkIcon
                           className="h-6 w-6 text-white"
                           aria-hidden="true"
@@ -448,7 +450,7 @@ export default function NewLayout({ children }: any) {
               className="-m-2.5 p-2.5 text-black dark:text-white lg:hidden"
               onClick={() => setSidebarOpen(true)}
             >
-              <span className="sr-only">Open sidebar</span>
+              <span className="sr-only">{t("common:nav.sidebar.open")}</span>
               <Bars3Icon
                 className="h-6 w-6 text-black dark:text-white"
                 aria-hidden="true"

@@ -4,8 +4,8 @@
   },
   "menu": {
     "back": "Назад",
-    "users": "Клиенты",
-    "clients": "Агенты",
+    "users": "Агенты",
+    "clients": "Клиенты",
     "email_queues": "Почтовые очереди",
     "webhooks": "Веб-хуки",
     "smtp_email": "SMTP",

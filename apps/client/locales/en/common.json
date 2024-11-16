@@ -1,0 +1,64 @@
+{
+  "main": {
+    "product_name": "Peppermint"
+  },
+  "buttons": {
+    "close": "Close",
+    "open": "Open"
+  },
+  "options": {
+    "enable": "Enable",
+    "disable": "Disable"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "settings": {
+    "feature_flags": {
+      "title": "Additional Options",
+      "keyboard_shortcuts_hide": {
+        "name": "Hide Keyboard Shortcuts",
+        "desc": "Hide keyboard shortcuts"
+      },
+      "name_hide": {
+        "name": "Hide Name When Creating",
+        "desc": "Hide the name field when creating a new question"
+      },
+      "email_hide": {
+        "name": "Hide Email When Creating",
+        "desc": "Hide the email field when creating a new question"
+      }
+    }
+  },
+  "ticket_states": {
+    "ticket_statuses": {
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "ticket_priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "ticket_unassigned": "Unassigned",
+    "ticket_types": {
+      "service": "Service",
+      "feature": "Feature",
+      "bug": "Bug",
+      "maintenance": "Maintenance",
+      "incident": "Incident",
+      "access": "Access",
+      "feedback": "Feedback",
+      "support": "Support"
+    }
+  },
+  "nav": {
+    "send_feedback": "Feedback",
+    "version": "Version",
+    "sidebar": {
+      "close": "Close",
+      "open": "Open"
+    }
+  }
+}

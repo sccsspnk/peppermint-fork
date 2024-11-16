@@ -1,0 +1,18 @@
+{
+  "cards": {
+    "open_issues": "Open",
+    "completed_issues": "Completed",
+    "unassigned_issues": "Unassigned",
+    "create_issue": "Create your first request"
+  },
+  "recent_issues": {
+    "title": "Recent Requests",
+    "table_tabs": {
+      "title": "Title",
+      "priority": "Priority",
+      "status": "Status",
+      "created": "Created",
+      "assigned_to": "Assigned To"
+    }
+  }
+}

@@ -1,7 +1,10 @@
 {
   "main": {
-    "product_name": "Peppermint",
-    "version": "Версия"
+    "product_name": "Peppermint"
+  },
+  "buttons": {
+    "close": "Закрыть",
+    "open": "Открыть"
   },
   "options": {
     "enable": "Включить",
@@ -48,6 +51,14 @@
       "access": "Доступ",
       "feedback": "Обратная связь",
       "support": "Поддержка"
+    }
+  },
+  "nav": {
+    "send_feedback": "Обратная связь",
+    "version": "Версия",
+    "sidebar": {
+      "close": "Закрыть",
+      "open": "Открыть"
     }
   }
 }

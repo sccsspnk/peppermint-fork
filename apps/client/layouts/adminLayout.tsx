@@ -148,7 +148,9 @@ export default function AdminLayout({ children }: any) {
                           className="-m-2.5 p-2.5"
                           onClick={() => setSidebarOpen(false)}
                         >
-                          <span className="sr-only">Close sidebar</span>
+                          <span className="sr-only">
+                            {t("common:nav.sidebar.close")}
+                          </span>
                           <XMarkIcon
                             className="h-6 w-6 text-white"
                             aria-hidden="true"
@@ -162,7 +164,7 @@ export default function AdminLayout({ children }: any) {
                         {/* <img className="h-8 w-auto" src="/logo.svg" alt="Workflow" /> */}
                         <Link href="https://peppermint.sh">
                           <span className="text-3xl ml-2  hover:text-green-600 font-bold ">
-                            Peppermint
+                            {t("common:main.product_name")}
                           </span>
                         </Link>
                       </div>
@@ -213,7 +215,7 @@ export default function AdminLayout({ children }: any) {
                 {/* <img className="h-8 w-auto" src="/logo.svg" alt="Workflow" /> */}
                 <Link href="https://peppermint.sh">
                   <span className="text-3xl ml-2  hover:text-green-600 font-bold ">
-                    Peppermint
+                    {t("common:main.product_name")}
                   </span>
                 </Link>
               </div>
@@ -262,7 +264,7 @@ export default function AdminLayout({ children }: any) {
                 className="-m-2.5 p-2.5 text-foreground lg:hidden"
                 onClick={() => setSidebarOpen(true)}
               >
-                <span className="sr-only">Open sidebar</span>
+                <span className="sr-only">{t("common:nav.sidebar.open")}</span>
                 <Bars3Icon
                   className="h-6 w-6 text-foreground"
                   aria-hidden="true"
@@ -280,7 +282,8 @@ export default function AdminLayout({ children }: any) {
                   {user.isAdmin && (
                     <Link href="https://github.com/Peppermint-Lab/peppermint/releases">
                       <span className="inline-flex items-center rounded-md bg-green-700/10 px-3 py-2 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-500/20">
-                        Version {process.env.NEXT_PUBLIC_CLIENT_VERSION}
+                        {t("common:nav.version")}{" "}
+                        {process.env.NEXT_PUBLIC_CLIENT_VERSION}
                       </span>
                     </Link>
                   )}
@@ -317,7 +320,7 @@ export default function AdminLayout({ children }: any) {
                         variant="outline"
                         className="text-foreground hover:cursor-pointer whitespace-nowrap"
                       >
-                        Send Feedback
+                        {t("common:nav.send_feedback")}
                       </Button>
                     </Link>
                   )}
