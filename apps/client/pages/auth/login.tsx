@@ -3,9 +3,11 @@ import { setCookie } from "cookies-next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Login({}) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,9 +38,8 @@ export default function Login({}) {
           } else {
             toast({
               variant: "destructive",
-              title: "Error",
-              description:
-                "There was an error logging in, please try again. If this issue persists, please contact support via the discord.",
+              title: t("auth_login:errors.unknown_title"),
+              description: t("auth_login:errors.unknown_desc"),
             });
           }
         });
@@ -46,9 +47,8 @@ export default function Login({}) {
       console.error(error);
       toast({
         variant: "destructive",
-        title: "Database Error",
-        description:
-          "This is an issue with the database, please check the docker logs or contact support via discord.",
+        title: t("auth_login:errors.database_title"),
+        description: t("auth_login:errors.database_desc"),
       });
     }
   }
@@ -74,9 +74,8 @@ export default function Login({}) {
     if (router.query.error) {
       toast({
         variant: "destructive",
-        title: "Account Error - No Account Found",
-        description:
-          "It looks like you have tried to use SSO with an account that does not exist. Please try again or contact your admin to get you set up first.",
+        title: t("auth_login:errors.account_sso_title"),
+        description: t("auth_login:errors.account_sso_desc"),
       });
     }
   }, [router]);
@@ -85,7 +84,9 @@ export default function Login({}) {
     <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
-          Welcome to Peppermint
+          {t("auth_login:page.title", {
+            product_name: t("common:main.product_name"),
+          })}
         </h2>
       </div>
 
@@ -100,7 +101,7 @@ export default function Login({}) {
                   htmlFor="email"
                   className="block text-sm font-medium text-foreground"
                 >
-                  Email address
+                  {t("auth_login:labels.email")}
                 </label>
                 <div className="mt-1">
                   <input
@@ -125,7 +126,7 @@ export default function Login({}) {
                   htmlFor="password"
                   className="block text-sm font-medium text-foreground"
                 >
-                  Password
+                  {t("auth_login:labels.password")}
                 </label>
                 <div className="mt-1">
                   <input
@@ -151,7 +152,7 @@ export default function Login({}) {
                     href="/auth/forgot-password"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
-                    Forgot your password?
+                    {t("auth_login:links.forgot_password")}
                   </Link>
                 </div>
               </div>
@@ -162,7 +163,7 @@ export default function Login({}) {
                   onClick={postData}
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                 >
-                  Sign In
+                  {t("auth_login:buttons.sign_in")}
                 </button>
 
                 {url && (
@@ -171,7 +172,7 @@ export default function Login({}) {
                     onClick={() => router.push(url)}
                     className="w-full flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                   >
-                    Sign in with OIDC
+                    {t("auth_login:buttons.sign_in_via_oidc")}
                   </button>
                 )}
               </div>
