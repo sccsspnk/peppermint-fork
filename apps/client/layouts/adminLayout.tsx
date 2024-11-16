@@ -35,62 +35,64 @@ export default function AdminLayout({ children }: any) {
   if (user && !user.isAdmin) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <h1 className="text-4xl font-bold">You are not an admin</h1>
+        <h1 className="text-4xl font-bold">
+          {t("_layout_admin:warns.not_admin")}
+        </h1>
       </div>
     );
   }
 
   const navigation = [
     {
-      name: "Back",
+      name: t("_layout_admin:menu.back"),
       href: "/",
       current: null,
       icon: MoveLeft,
     },
     {
-      name: t("sl_users"),
+      name: t("_layout_admin:menu.users"),
       href: "/admin/users/internal",
       current: location.pathname === "/admin/users/internal",
       icon: UserRound,
     },
     {
-      name: t("sl_clients"),
+      name: t("_layout_admin:menu.clients"),
       href: "/admin/clients",
       current: location.pathname === "/admin/clients",
       icon: ContactIcon,
     },
     {
-      name: "Email Queues",
+      name: t("_layout_admin:menu.email_queues"),
       href: "/admin/email-queues",
       current: location.pathname === "/admin/email-queues",
       icon: Mail,
     },
     {
-      name: "Webhooks",
+      name: t("_layout_admin:menu.webhooks"),
       href: "/admin/webhooks",
       current: location.pathname === "/admin/webhooks",
       icon: Webhook,
     },
     {
-      name: "SMTP Email",
+      name: t("_layout_admin:menu.smtp_email"),
       href: "/admin/smtp",
       current: location.pathname === "/admin/smtp",
       icon: Mailbox,
     },
     {
-      name: "Authentication",
+      name: t("_layout_admin:menu.authentication"),
       href: "/admin/authentication",
       current: location.pathname === "/admin/authentication",
       icon: KeyRound,
     },
     {
-      name: "Roles",
+      name: t("_layout_admin:menu.roles"),
       href: "/admin/roles",
       current: location.pathname === "/admin/roles",
       icon: RollerCoaster,
     },
     {
-      name: "Logs",
+      name: t("_layout_admin:menu.logs"),
       href: "/admin/logs",
       current: location.pathname === "/admin/logs",
       icon: FileText,

@@ -24,6 +24,7 @@ module.exports = {
     "/auth/login": ["auth_login"],
     "/auth/forgot-password": ["forgot_password"],
     "/onboarding": ["onboarding"],
+    "/admin": ["_layout_admin"],
   },
   localeDetection: true,
 };

@@ -1,0 +1,16 @@
+{
+  "warns": {
+    "not_admin": "Ты не админ"
+  },
+  "menu": {
+    "back": "Назад",
+    "users": "Клиенты",
+    "clients": "Агенты",
+    "email_queues": "Почтовые очереди",
+    "webhooks": "Веб-хуки",
+    "smtp_email": "SMTP",
+    "authentication": "Аутентификация",
+    "roles": "Роли",
+    "logs": "Логи"
+  }
+}
