@@ -21,6 +21,7 @@ module.exports = {
   pages: {
     "*": ["common"],
     "/auth/login": ["auth_login"],
+    "/auth/forgot-password": ["forgot_password"],
   },
   localeDetection: true,
 };

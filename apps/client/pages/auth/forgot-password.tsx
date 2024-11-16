@@ -2,9 +2,11 @@ import { toast } from "@/shadcn/hooks/use-toast";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Login({}) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
 
@@ -17,19 +19,17 @@ export default function Login({}) {
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
-
           toast({
             variant: "default",
-            title: "Success",
-            description: "Password reset email is on its way.",
+            title: t("forgot_password:success_info.success_request_title"),
+            description: t("forgot_password:success_info.success_request_desc"),
           });
           router.push("/auth/login");
         } else {
           toast({
             variant: "destructive",
-            title: "Error", 
-            description:
-              "There was an error with this request, please try again. If this issue persists, please contact support via the discord.",
+            title: t("forgot_password:errors.unknown_title"),
+            description: t("forgot_password:errors.unknown_desc"),
           });
         }
       });
@@ -46,7 +46,7 @@ export default function Login({}) {
           />
         </a>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Request Password Reset
+          {t("forgot_password:page.title")}
         </h2>
       </div>
 
@@ -58,7 +58,7 @@ export default function Login({}) {
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
               >
-                Email address
+                {t("forgot_password:labels.email")}
               </label>
               <div className="mt-1">
                 <input
@@ -79,7 +79,7 @@ export default function Login({}) {
                   href="/auth/login"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Remember your password?
+                  {t("forgot_password:links.remember_password")}
                 </Link>
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function Login({}) {
                 onClick={postData}
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
               >
-                Submit Request
+                {t("forgot_password:buttons.submit_request")}
               </button>
             </div>
           </div>
