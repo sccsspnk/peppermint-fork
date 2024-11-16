@@ -1,0 +1,32 @@
+{
+  "page": {
+    "title": "Peppermint",
+    "subtitle": "Добро пожаловать в {{product_name}}! Система управления тикетами с открытым исходным кодом"
+  },
+  "table": {
+    "github": {
+      "title": "Github",
+      "subtitle": "Поскольку мы являемся проектом с открытым исходным кодом, все наши исходные тексты можно найти здесь. Если вы столкнулись с ошибкой или не уверены в чем-то",
+      "icon": "/github.svg",
+      "button": "Посмотреть",
+      "button_link": "https://github.com/Peppermint-Lab/peppermint"
+    },
+    "docs": {
+      "title": "Docs",
+      "subtitle": "Документацию по {{product_name}} можно найти здесь. Если вы найдете что-то, что не документировано, не стесняйтесь открыть PR или Issue. Мы сразу же займемся этим",
+      "icon": "/logo.svg",
+      "button": "Посмотреть",
+      "button_link": "https://github.com/Peppermint-Lab/peppermint"
+    },
+    "discord": {
+      "title": "Discord",
+      "subtitle": "Присоединяйтесь к нашему серверу Discord, чтобы получить помощь от сообщества или разработчиков. Неплохое место, чтобы потусоваться",
+      "icon": "/discord.svg",
+      "button": "Посмотреть",
+      "button_link": "https://discord.gg/zbTy8nuHnK"
+    }
+  },
+  "buttons": {
+    "to_dashboard": "К панели"
+  }
+}

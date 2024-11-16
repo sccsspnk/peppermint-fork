@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 export default function Settings({ children }) {
   const router = useRouter();
 
-  const { t } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   return (
     <SidebarProvider>

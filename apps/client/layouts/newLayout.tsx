@@ -1,7 +1,4 @@
-import {
-  Dialog,
-  Transition,
-} from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   Cog6ToothIcon,
@@ -18,13 +15,7 @@ import { AccountDropdown } from "../components/AccountDropdown";
 import CreateTicketModal from "../components/CreateTicketModal";
 
 import { classNames } from "@/shadcn/lib/utils";
-import {
-  Bell,
-  Building,
-  FileText,
-  Settings,
-  SquareKanban,
-} from "lucide-react";
+import { Bell, Building, FileText, Settings, SquareKanban } from "lucide-react";
 import ThemeSettings from "../components/ThemeSettings";
 import { useUser } from "../store/session";
 
@@ -36,7 +27,7 @@ export default function NewLayout({ children }: any) {
 
   const [keypressdown, setKeyPressDown] = useState(false);
 
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -403,13 +394,13 @@ export default function NewLayout({ children }: any) {
                             "group -mx-2 flex gap-x-3 p-1 pl-3 justify-between w-full rounded-md text-xs font-semibold leading-6"
                           )}
                         >
-                            <span className="whitespace-nowrap">
-                              {user.name}'s closed
+                          <span className="whitespace-nowrap">
+                            {user.name}'s closed
+                          </span>
+                          <div className="flex w-full justify-end float-right">
+                            <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
+                              f
                             </span>
-                            <div className="flex w-full justify-end float-right">
-                              <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
-                                f
-                              </span>
                           </div>
                         </Link>
                       </li>

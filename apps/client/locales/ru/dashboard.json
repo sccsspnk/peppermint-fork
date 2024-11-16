@@ -1,0 +1,18 @@
+{
+  "cards": {
+    "open_issues": "Открытые",
+    "completed_issues": "Выполненные",
+    "unassigned_issues": "Неназначенные",
+    "create_issue": "Создать своё первое обращение"
+  },
+  "recent_issues": {
+    "title": "Недавние обращения",
+    "table_tabs": {
+      "title": "Заголовок",
+      "priority": "Приоритет",
+      "status": "Статус",
+      "created": "Создан",
+      "assigned_to": "Назначен"
+    }
+  }
+}

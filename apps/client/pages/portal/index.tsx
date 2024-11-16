@@ -10,7 +10,7 @@ import { useUser } from "../../store/session";
 
 export default function Home() {
   const router = useRouter();
-  const { t } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const { user } = useUser();
   const token = getCookie("session");
@@ -367,8 +367,6 @@ export default function Home() {
           </>
         )}
       </div>
-      
-      
     </div>
   );
 }

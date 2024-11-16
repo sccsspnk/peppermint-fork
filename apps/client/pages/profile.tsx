@@ -17,7 +17,7 @@ export default function UserProfile() {
   const { user } = useUser();
   const token = getCookie("session");
 
-  const { t } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const router = useRouter();
 

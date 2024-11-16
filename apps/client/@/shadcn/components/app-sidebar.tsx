@@ -3,7 +3,7 @@ import {
   FileText,
   ListPlus,
   Settings,
-  SquareKanban
+  SquareKanban,
 } from "lucide-react";
 import * as React from "react";
 
@@ -31,7 +31,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const [keypressdown, setKeyPressDown] = useState(false);
 
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
   const sidebar = useSidebar();
 
   if (!user) {
@@ -163,7 +163,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   }, [handleKeyPress, location]);
 
   return (
-    <Sidebar collapsible="icon" {...props} >
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         {/* <TeamSwitcher teams={data.teams} /> */}
         <div className="flex items-center gap-2 ">

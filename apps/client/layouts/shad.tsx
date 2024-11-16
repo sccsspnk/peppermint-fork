@@ -6,10 +6,7 @@ import { useRouter } from "next/router";
 import { AccountDropdown } from "../components/AccountDropdown";
 
 import { AppSidebar } from "@/shadcn/components/app-sidebar";
-import {
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/shadcn/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/shadcn/ui/sidebar";
 import { Bell } from "lucide-react";
 import { useUser } from "../store/session";
 
@@ -18,8 +15,7 @@ export default function ShadLayout({ children }: any) {
 
   const { loading, user, fetchUserProfile } = useUser();
 
-
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   if (!user) {
     location.push("/auth/login");

@@ -11,7 +11,7 @@ import { useUser } from "../store/session";
 
 export default function Home() {
   const router = useRouter();
-  const { t } = useTranslation("peppermint");
+  const { t } = useTranslation();
 
   const { user } = useUser();
   const token = getCookie("session");
@@ -86,14 +86,18 @@ export default function Home() {
   }
 
   const stats = [
-    { name: "Open Issues", stat: openTickets, href: "/issues" },
     {
-      name: "Completed Issues",
+      name: t("dashboard:cards.open_issues"),
+      stat: openTickets,
+      href: "/issues",
+    },
+    {
+      name: t("dashboard:cards.completed_issues"),
       stat: completedTickets,
       href: "/issues?filter=closed",
     },
     {
-      name: "Unassigned Issues",
+      name: t("dashboard:cards.unassigned_issues"),
       stat: unassigned,
       href: "/issues?filter=unassigned",
     },
@@ -121,7 +125,8 @@ export default function Home() {
           {user.isAdmin && (
             <Link href="https://github.com/Peppermint-Lab/peppermint/releases">
               <span className="inline-flex items-center rounded-md bg-green-700/10 px-3 py-2 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-500/20">
-                Version {process.env.NEXT_PUBLIC_CLIENT_VERSION}
+                {t("common:main.version")}{" "}
+                {process.env.NEXT_PUBLIC_CLIENT_VERSION}
               </span>
             </Link>
           )}
@@ -170,13 +175,15 @@ export default function Home() {
                       />
                     </svg>
                     <span className="mt-2 block text-sm font-semibold text-gray-900 dark:text-white">
-                      Create your first Issue
+                      {t("dashboard:cards.create_issue")}
                     </span>
                   </button>
                 </>
               ) : (
                 <>
-                  <span className="font-bold text-2xl">Recent Issues</span>
+                  <span className="font-bold text-2xl">
+                    {t("dashboard:recent_issues.title")}
+                  </span>
                   <div className="-mx-4 sm:-mx-0 w-full">
                     <table className="min-w-full divide-y divide-gray-300">
                       <thead>
@@ -185,32 +192,34 @@ export default function Home() {
                             scope="col"
                             className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-0"
                           >
-                            {t("title")}
+                            {t("dashboard:recent_issues.table_tabs.title")}
                           </th>
                           <th
                             scope="col"
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white lg:table-cell"
                           >
-                            {t("priority")}
+                            {t("dashboard:recent_issues.table_tabs.priority")}
                           </th>
                           <th
                             scope="col"
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white sm:table-cell"
                           >
-                            {t("status")}
+                            {t("dashboard:recent_issues.table_tabs.status")}
                           </th>
                           <th
                             scope="col"
                             className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white"
                           >
-                            {t("created")}
+                            {t("dashboard:recent_issues.table_tabs.created")}
                           </th>
 
                           <th
                             scope="col"
                             className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white"
                           >
-                            {t("assigned_to")}
+                            {t(
+                              "dashboard:recent_issues.table_tabs.assigned_to"
+                            )}
                           </th>
                         </tr>
                       </thead>
@@ -225,7 +234,9 @@ export default function Home() {
                               <td className="sm:max-w-[280px] 2xl:max-w-[720px] truncate py-1 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-white sm:pl-0">
                                 {item.title}
                                 <dl className="font-normal lg:hidden">
-                                  <dt className="sr-only sm:hidden">Email</dt>
+                                  <dt className="sr-only sm:hidden">
+                                    {t("common:email")}
+                                  </dt>
                                   <dd className="mt-1 truncate text-gray-500 sm:hidden">
                                     {item.email}
                                   </dd>
@@ -259,7 +270,7 @@ export default function Home() {
                                       >
                                         <circle cx={3} cy={3} r={3} />
                                       </svg>
-                                      {t("closed")}
+                                      {t("common:ticket_statuses.closed")}
                                     </span>
                                   </div>
                                 ) : (
@@ -272,7 +283,7 @@ export default function Home() {
                                       >
                                         <circle cx={3} cy={3} r={3} />
                                       </svg>
-                                      {t("open")}
+                                      {t("common:ticket_statuses.open")}
                                     </span>
                                   </>
                                 )}
@@ -281,7 +292,9 @@ export default function Home() {
                                 {moment(item.createdAt).format("DD/MM/YYYY")}
                               </td>
                               <td className="px-3 py-1 text-sm text-gray-500 w-[130px] dark:text-white truncate whitespace-nowrap">
-                                {item.assignedTo ? item.assignedTo.name : "-"}
+                                {item.assignedTo
+                                  ? item.assignedTo.name
+                                  : t("common:ticket_unassigned")}
                               </td>
                             </tr>
                           ))}

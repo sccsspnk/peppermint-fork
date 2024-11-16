@@ -1,9 +1,20 @@
 {
   "main": {
-    "product_name": "Peppermint"
+    "product_name": "Peppermint",
+    "version": "Версия"
   },
   "auth": {
     "email": "Эл. почта",
     "password": "Пароль"
-  }
+  },
+  "ticket_statuses": {
+    "open": "Открыт",
+    "closed": "Закрыт"
+  },
+  "ticket_priorities": {
+    "low": "Низкий",
+    "medium": "Средний",
+    "high": "Высокий"
+  },
+  "ticket_unassigned": "Не назначен"
 }

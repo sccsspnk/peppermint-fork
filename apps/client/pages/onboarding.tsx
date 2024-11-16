@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 
 import { getCookie } from "cookies-next";
+import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import { useUser } from "../store/session";
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const { user } = useUser();
 
@@ -31,67 +33,80 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div className="flex flex-col">
               <h1 className="text-2xl text-foreground font-bold">
-                Peppermint{" "}
+                {t("onboarding:page.title")}{" "}
               </h1>
               <p className="text-foreground">
-                Welcome to Peppermint! A fully open sourced ticket management
-                system.
+                {t("onboarding:page.subtitle", {
+                  product_name: t("common:main.product_name"),
+                })}
               </p>
             </div>
           </div>
           <div className="mt-4 ">
             <div className="flex flex-col space-y-4">
               <div className="border p-2 md:p-6 rounded-md border-dashed flex flex-col md:flex-row space-x-4 items-center">
-                <img src="/github.svg" className="h-10 w-10" />
+                <img
+                  src={t("onboarding:table.github.icon")}
+                  className="h-10 w-10"
+                />
                 <div className="flex flex-col align-center lg:w-[36em]">
-                  <span className="font-bold text-lg">Github</span>
+                  <span className="font-bold text-lg">
+                    {t("onboarding:table.github.title")}
+                  </span>
                   <span className="max-w-lg  text-xs md:text-md">
-                    Being an open source project, all of our source code can be
-                    housed here. If you ever face a bug or are unsure about
-                    something.
+                    {t("onboarding:table.github.subtitle")}
                   </span>
                 </div>
                 <Link
                   target="_blank"
-                  href="https://github.com/Peppermint-Lab/peppermint"
+                  href={t("onboarding:table.github.button_link")}
                   className="rounded-md mt-4 sm:mt-0 bg-gray-600 px-2.5 whitespace-nowrap hover:text-white py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 "
                 >
-                  Check it out
+                  {t("onboarding:table.github.button")}
                 </Link>
               </div>
               <div className="border p-2 md:p-6 rounded-md border-dashed w-full flex flex-col md:flex-row space-x-4 items-center">
-                <img src="/logo.svg" className="h-10 w-10" />
+                <img
+                  src={t("onboarding:table.docs.icon")}
+                  className="h-10 w-10"
+                />
                 <div className="flex flex-col align-center lg:w-[36em]">
-                  <span className="font-bold text-lg">Docs</span>
+                  <span className="font-bold text-lg">
+                    {t("onboarding:table.docs.title")}
+                  </span>
                   <span className="max-w-lg text-xs md:text-md">
-                    Documentation for Peppermint can be found here. If you find
-                    something that isnt documented, feel free to open a PR or an
-                    Issue. We'll get straight on it.
+                    {t("onboarding:table.docs.subtitle", {
+                      product_name: t("common:main.product_name"),
+                    })}
                   </span>
                 </div>
                 <Link
                   target="_blank"
-                  href="https://github.com/Peppermint-Lab/peppermint"
+                  href={t("onboarding:table.docs.button_link")}
                   className="rounded-md flex-end bg-green-600 mt-4 whitespace-nowrap sm:mt-0 px-2.5 py-1.5 text-sm font-semibold hover:text-white text-white shadow-sm hover:bg-green-500 "
                 >
-                  Check it out
+                  {t("onboarding:table.docs.button")}
                 </Link>
               </div>
               <div className="border p-2 md:p-6 rounded-md border-dashed flex flex-col md:flex-row space-x-4 items-center ">
-                <img src="/discord.svg" className="h-10 w-10" />
+                <img
+                  src={t("onboarding:table.discord.icon")}
+                  className="h-10 w-10"
+                />
                 <div className="flex flex-col align-center lg:w-[36em]">
-                  <span className="font-bold text-lg">Discord</span>
+                  <span className="font-bold text-lg">
+                    {t("onboarding:table.discord.title")}
+                  </span>
                   <span className="max-w-lg text-xs md:text-md">
-                    Join our discord server to get help from the community or
-                    the developers. Not a bad place to hang out either.
+                    {t("onboarding:table.discord.subtitle")}
                   </span>
                 </div>
                 <Link
                   target="_blank"
-                  href="https://discord.gg/zbTy8nuHnK"
+                  href={t("onboarding:table.discord.button_link")}
                   className="rounded-md bg-blue-600 mt-4 whitespace-nowrap sm:mt-0 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 "
                 >
-                  Check it out
+                  {t("onboarding:table.discord.button")}
                 </Link>
               </div>
             </div>
@@ -101,7 +116,7 @@ export default function Home() {
               className="bg-green-500 hover:bg-green-600 text-white px-2.5 py-1.5 mr-6 text-sm font-semibold rounded-lg"
               onClick={() => updateFirstLogin()}
             >
-              To Dashboard
+              {t("onboarding:buttons.to_dashboard")}
             </button>
           </div>
         </div>

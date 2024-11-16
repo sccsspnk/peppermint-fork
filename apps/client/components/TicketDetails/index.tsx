@@ -93,7 +93,7 @@ const priorityOptions = [
 
 export default function Ticket() {
   const router = useRouter();
-  const { t } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const token = getCookie("session");
 

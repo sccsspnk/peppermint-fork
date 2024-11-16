@@ -25,7 +25,7 @@ export default function PortalLayout({ children }: any) {
   const { loading, user, fetchUserProfile } = useUser();
   const locale = user ? user.language : "en";
 
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -300,9 +300,7 @@ export default function PortalLayout({ children }: any) {
                             "group -mx-2 flex gap-x-3 p-1 mll-2 text-xs font-semibold leading-6"
                           )}
                         >
-                          <span className="whitespace-nowrap">
-                            open
-                          </span>
+                          <span className="whitespace-nowrap">open</span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
                               o
@@ -321,9 +319,7 @@ export default function PortalLayout({ children }: any) {
                             "group -mx-2 flex gap-x-3 p-1 text-xs font-semibold leading-6"
                           )}
                         >
-                          <span className="whitespace-nowrap">
-                            closed
-                          </span>
+                          <span className="whitespace-nowrap">closed</span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
                               f

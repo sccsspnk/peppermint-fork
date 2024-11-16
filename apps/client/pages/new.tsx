@@ -8,7 +8,9 @@ import { getCookie } from "cookies-next";
 import { toast } from "@/shadcn/hooks/use-toast";
 import dynamic from "next/dynamic";
 
-const Editor = dynamic(() => import("../components/BlockEditor"), { ssr: false });
+const Editor = dynamic(() => import("../components/BlockEditor"), {
+  ssr: false,
+});
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -25,7 +27,7 @@ const type = [
 ];
 
 export default function CreateTicket() {
-  const { t } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
   const router = useRouter();
   const token = getCookie("session");
   const { user } = useUser();

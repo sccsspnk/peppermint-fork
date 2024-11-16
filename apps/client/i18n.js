@@ -20,8 +20,10 @@ module.exports = {
   defaultLocale: "en",
   pages: {
     "*": ["common"],
+    "/": ["dashboard"],
     "/auth/login": ["auth_login"],
     "/auth/forgot-password": ["forgot_password"],
+    "/onboarding": ["onboarding"],
   },
   localeDetection: true,
 };

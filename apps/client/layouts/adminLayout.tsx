@@ -26,7 +26,7 @@ import ThemeSettings from "../components/ThemeSettings";
 import { useUser } from "../store/session";
 
 export default function AdminLayout({ children }: any) {
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const { loading, user } = useUser();
 

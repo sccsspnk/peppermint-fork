@@ -8,7 +8,7 @@ function classNames(...classes) {
 }
 
 export default function NotificationsSettingsModal() {
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
 
   const [open, setOpen] = useState(false);
 

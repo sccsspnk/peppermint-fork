@@ -28,7 +28,7 @@ const type = [
 ];
 
 export default function CreateTicketModal({ keypress, setKeyPressDown }) {
-  const { t, lang } = useTranslation("peppermint");
+  const { t, lang } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
