@@ -1,5 +1,9 @@
 {
   "main": {
     "product_name": "Peppermint"
+  },
+  "auth": {
+    "email": "Эл. почта",
+    "password": "Пароль"
   }
 }

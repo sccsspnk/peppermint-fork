@@ -21,15 +21,15 @@ export default function Login({}) {
         if (res.success) {
           toast({
             variant: "default",
-            title: t("forgot_password:success_info.success_request_title"),
-            description: t("forgot_password:success_info.success_request_desc"),
+            title: t("forgot_password:info.success_request.title"),
+            description: t("forgot_password:info.success_request.desc"),
           });
           router.push("/auth/login");
         } else {
           toast({
             variant: "destructive",
-            title: t("forgot_password:errors.unknown_title"),
-            description: t("forgot_password:errors.unknown_desc"),
+            title: t("forgot_password:errors.unknown.title"),
+            description: t("forgot_password:errors.unknown.desc"),
           });
         }
       });
@@ -58,7 +58,7 @@ export default function Login({}) {
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
               >
-                {t("forgot_password:labels.email")}
+                {t("common:auth.email")}
               </label>
               <div className="mt-1">
                 <input

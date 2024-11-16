@@ -38,8 +38,8 @@ export default function Login({}) {
           } else {
             toast({
               variant: "destructive",
-              title: t("auth_login:errors.unknown_title"),
-              description: t("auth_login:errors.unknown_desc"),
+              title: t("auth_login:errors.unknown.title"),
+              description: t("auth_login:errors.unknown.desc"),
             });
           }
         });
@@ -47,8 +47,8 @@ export default function Login({}) {
       console.error(error);
       toast({
         variant: "destructive",
-        title: t("auth_login:errors.database_title"),
-        description: t("auth_login:errors.database_desc"),
+        title: t("auth_login:errors.database.title"),
+        description: t("auth_login:errors.database.desc"),
       });
     }
   }
@@ -74,8 +74,8 @@ export default function Login({}) {
     if (router.query.error) {
       toast({
         variant: "destructive",
-        title: t("auth_login:errors.account_sso_title"),
-        description: t("auth_login:errors.account_sso_desc"),
+        title: t("auth_login:errors.account_sso.title"),
+        description: t("auth_login:errors.account_sso.desc"),
       });
     }
   }, [router]);
@@ -101,7 +101,7 @@ export default function Login({}) {
                   htmlFor="email"
                   className="block text-sm font-medium text-foreground"
                 >
-                  {t("auth_login:labels.email")}
+                  {t("common:auth.email")}
                 </label>
                 <div className="mt-1">
                   <input
@@ -126,7 +126,7 @@ export default function Login({}) {
                   htmlFor="password"
                   className="block text-sm font-medium text-foreground"
                 >
-                  {t("auth_login:labels.password")}
+                  {t("common:auth.password")}
                 </label>
                 <div className="mt-1">
                   <input
