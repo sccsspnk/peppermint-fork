@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - next
+      - retranslate
 
 jobs:
   build:
