@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 interface FeatureFlag {
   name: string;
@@ -8,30 +9,32 @@ interface FeatureFlag {
   flagKey: string;
 }
 
-const defaultFlags: FeatureFlag[] = [
-  {
-    name: "Hide Keyboard Shortcuts",
-    enabled: false,
-    description: "Hide keyboard shortcuts",
-    flagKey: "keyboard_shortcuts_hide", // Added flag key for this feature
-  },
-  {
-    name: "Hide Name in Create",
-    enabled: false,
-    description: "Hide name field in create a new issue",
-    flagKey: "name_hide", // Added flag key for this feature
-  },
-  {
-    name: "Hide Email in Create",
-    enabled: false,
-    description: "Hide email field in create a new issue",
-    flagKey: "email_hide", // Added flag key for this feature
-  },
-];
-
 export default function FeatureFlags() {
   const [flags, setFlags] = useState<FeatureFlag[]>([]);
   const router = useRouter();
+  const { t, lang } = useTranslation();
+  const defaultFlags: FeatureFlag[] = [
+    {
+      name: t("common:settings.feature_flags.keyboard_shortcuts_hide.name"),
+      enabled: false,
+      description: t(
+        "common:settings.feature_flags.keyboard_shortcuts_hide.desc"
+      ),
+      flagKey: "keyboard_shortcuts_hide", // Added flag key for this feature
+    },
+    {
+      name: t("common:settings.feature_flags.name_hide.name"),
+      enabled: false,
+      description: t("common:settings.feature_flags.name_hide.desc"),
+      flagKey: "name_hide", // Added flag key for this feature
+    },
+    {
+      name: t("common:settings.feature_flags.email_hide.name"),
+      enabled: false,
+      description: t("common:settings.feature_flags.email_hide.desc"),
+      flagKey: "email_hide", // Added flag key for this feature
+    },
+  ];
 
   useEffect(() => {
     // Load flags from localStorage on component mount
@@ -39,8 +42,10 @@ export default function FeatureFlags() {
     if (savedFlags) {
       const parsedFlags = JSON.parse(savedFlags);
       // Merge saved flags with default flags, adding any new flags
-      const mergedFlags = defaultFlags.map(defaultFlag => {
-        const savedFlag = parsedFlags.find((f: FeatureFlag) => f.name === defaultFlag.name);
+      const mergedFlags = defaultFlags.map((defaultFlag) => {
+        const savedFlag = parsedFlags.find(
+          (f: FeatureFlag) => f.name === defaultFlag.name
+        );
         return savedFlag || defaultFlag;
       });
       setFlags(mergedFlags);
@@ -62,7 +67,9 @@ export default function FeatureFlags() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Feature Flags</h1>
+      <h1 className="text-2xl font-bold mb-6">
+        {t("common:settings.feature_flags.title")}
+      </h1>
       <div className="space-y-4">
         {flags.map((flag) => (
           <div
@@ -75,7 +82,9 @@ export default function FeatureFlags() {
             </div>
             <div>
               <button onClick={() => toggleFlag(flag.name)}>
-                {flag.enabled ? "Disable" : "Enable"}
+                {flag.enabled
+                  ? t("common:options.disable")
+                  : t("common:options.enable")}
               </button>
             </div>
           </div>

@@ -17,16 +17,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const type = [
-  { id: 5, name: "Incident" },
-  { id: 1, name: "Service" },
-  { id: 2, name: "Feature" },
-  { id: 3, name: "Bug" },
-  { id: 4, name: "Maintenance" },
-  { id: 6, name: "Access" },
-  { id: 8, name: "Feedback" },
-];
-
 export default function CreateTicketModal({ keypress, setKeyPressDown }) {
   const { t, lang } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -38,6 +28,17 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
   const { user } = useUser();
   const { state } = useSidebar();
 
+  const type = [
+    { id: 1, name: t("common:ticket_states.ticket_types.service") },
+    { id: 2, name: t("common:ticket_states.ticket_types.feature") },
+    { id: 3, name: t("common:ticket_states.ticket_types.bug") },
+    { id: 4, name: t("common:ticket_states.ticket_types.maintenance") },
+    { id: 5, name: t("common:ticket_states.ticket_types.incident") },
+    { id: 6, name: t("common:ticket_states.ticket_types.access") },
+    { id: 7, name: t("common:ticket_states.ticket_types.feedback") },
+    { id: 8, name: t("common:ticket_states.ticket_types.support") },
+  ];
+
   const [name, setName] = useState("");
   const [company, setCompany] = useState<any>();
   const [engineer, setEngineer] = useState<any>();
@@ -47,7 +48,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
   const [priority, setPriority] = useState("medium");
   const [options, setOptions] = useState<any>();
   const [users, setUsers] = useState<any>();
-  const [selected, setSelected] = useState<any>(type[3]);
+  const [selected, setSelected] = useState<any>(type[1]);
 
   const fetchClients = async () => {
     await fetch(`/api/v1/clients/all`, {
@@ -116,14 +117,14 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
         if (res.success === true) {
           toast({
             variant: "default",
-            title: "Success",
-            description: "Ticket created succesfully",
+            title: t("_modal_create_ticket:info.success.title"),
+            description: t("_modal_create_ticket:info.success.desc"),
           });
           router.push("/issues");
         } else {
           toast({
             variant: "destructive",
-            title: `Error`,
+            title: t("_modal_create_ticket:errors.unknown.title"),
             description: res.error,
           });
         }
@@ -154,15 +155,19 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
       if (savedFlags) {
         const flags = JSON.parse(savedFlags);
         const hideShortcuts = flags.find(
-          (f: any) => f.name === "Hide Keyboard Shortcuts"
+          (f: any) =>
+            f.name ===
+            t("common:settings.feature_flags.keyboard_shortcuts_hide.name")
         )?.enabled;
 
         const hideName = flags.find(
-          (f: any) => f.name === "Hide Name in Create"
+          (f: any) =>
+            f.name === t("common:settings.feature_flags.name_hide.name")
         )?.enabled;
 
         const hideEmail = flags.find(
-          (f: any) => f.name === "Hide Email in Create"
+          (f: any) =>
+            f.name === t("common:settings.feature_flags.email_hide.name")
         )?.enabled;
 
         setHideKeyboardShortcuts(hideShortcuts || false);
@@ -212,7 +217,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
               <div className="inline-block bg-background rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 align-middle md:max-w-3xl w-full ">
                 <div className="flex flex-row w-full align-middle">
                   <span className="text-md pb-2 font-semibold text-sm">
-                    New Issue
+                    {t("_modal_create_ticket:form.title")}
                   </span>
 
                   <button
@@ -220,14 +225,18 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                     className="ml-auto mb-1.5 text-foreground font-bold text-xs rounded-md hover:text-primary outline-none"
                     onClick={() => setOpen(false)}
                   >
-                    <span className="sr-only">Close</span>
+                    <span className="sr-only">
+                      {t("_modal_create_ticket:form.buttons.close")}
+                    </span>
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
                 <input
                   type="text"
                   name="title"
-                  placeholder="Issue title"
+                  placeholder={t(
+                    "_modal_create_ticket:form.placeholders.title"
+                  )}
                   maxLength={64}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full pl-0 pr-0 pt-0 text-md text-foreground bg-background border-none focus:outline-none focus:shadow-none focus:ring-0 focus:border-none"
@@ -238,7 +247,9 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                     <input
                       type="text"
                       id="name"
-                      placeholder={t("ticket_name_here")}
+                      placeholder={t(
+                        "_modal_create_ticket:form.placeholders.name"
+                      )}
                       name="name"
                       onChange={(e) => setName(e.target.value)}
                       className=" w-full pl-0 pr-0text-foreground bg-background  sm:text-sm border-none focus:outline-none focus:shadow-none focus:ring-0 focus:border-none"
@@ -249,7 +260,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                     <input
                       type="text"
                       name="email"
-                      placeholder={t("ticket_email_here")}
+                      placeholder={t("common:auth.email")}
                       onChange={(e) => setEmail(e.target.value)}
                       className=" w-full pl-0 pr-0 text-foreground bg-background   sm:text-sm border-none focus:outline-none focus:shadow-none focus:ring-0 focus:border-none"
                     />
@@ -267,9 +278,13 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                                 <Listbox.Button className="relative w-full min-w-[172px] cursor-default rounded-md bg-white dark:bg-[#0A090C] dark:text-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                   <span className="block truncate">
                                     {company === undefined
-                                      ? t("select_a_client")
+                                      ? t(
+                                          "_modal_create_ticket:form.dropdowns.select_client"
+                                        )
                                       : company === ""
-                                      ? t("select_a_client")
+                                      ? t(
+                                          "_modal_create_ticket:form.dropdowns.select_client"
+                                        )
                                       : company.name}
                                   </span>
                                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -309,7 +324,9 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                                               "block truncate"
                                             )}
                                           >
-                                            Unassigned
+                                            {t(
+                                              "common:ticket_states.ticket_unassigned"
+                                            )}
                                           </span>
 
                                           {selected ? (
@@ -390,7 +407,9 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                                 <Listbox.Button className="relative w-full min-w-[172px] cursor-default rounded-md bg-white dark:bg-[#0A090C] dark:text-white py-1 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                   <span className="block truncate">
                                     {engineer === undefined
-                                      ? t("select_an_engineer")
+                                      ? t(
+                                          "_modal_create_ticket:form.dropdowns.select_engineer"
+                                        )
                                       : engineer.name}
                                   </span>
                                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -430,7 +449,9 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                                               "block truncate"
                                             )}
                                           >
-                                            Unassigned
+                                            {t(
+                                              "common:ticket_states.ticket_unassigned"
+                                            )}
                                           </span>
 
                                           {selected ? (
@@ -593,7 +614,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                         type="button"
                         className="inline-flex justify-center rounded-md shadow-sm px-2.5 py-1.5 border border-transparent text-xs bg-green-600 font-medium text-white hover:bg-green-700 focus:outline-none "
                       >
-                        Create Ticket
+                        {t("_modal_create_ticket:form.buttons.create_ticket")}
                       </button>
                     </div>
                   </div>

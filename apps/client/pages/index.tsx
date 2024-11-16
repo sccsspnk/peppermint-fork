@@ -270,7 +270,9 @@ export default function Home() {
                                       >
                                         <circle cx={3} cy={3} r={3} />
                                       </svg>
-                                      {t("common:ticket_statuses.closed")}
+                                      {t(
+                                        "common:ticket_states.ticket_statuses.closed"
+                                      )}
                                     </span>
                                   </div>
                                 ) : (
@@ -283,7 +285,9 @@ export default function Home() {
                                       >
                                         <circle cx={3} cy={3} r={3} />
                                       </svg>
-                                      {t("common:ticket_statuses.open")}
+                                      {t(
+                                        "common:ticket_states.ticket_statuses.open"
+                                      )}
                                     </span>
                                   </>
                                 )}
@@ -294,7 +298,7 @@ export default function Home() {
                               <td className="px-3 py-1 text-sm text-gray-500 w-[130px] dark:text-white truncate whitespace-nowrap">
                                 {item.assignedTo
                                   ? item.assignedTo.name
-                                  : t("common:ticket_unassigned")}
+                                  : t("common:ticket_states.ticket_unassigned")}
                               </td>
                             </tr>
                           ))}

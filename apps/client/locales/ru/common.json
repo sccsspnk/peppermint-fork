@@ -3,18 +3,51 @@
     "product_name": "Peppermint",
     "version": "Версия"
   },
+  "options": {
+    "enable": "Включить",
+    "disable": "Отключить"
+  },
   "auth": {
     "email": "Эл. почта",
     "password": "Пароль"
   },
-  "ticket_statuses": {
-    "open": "Открыт",
-    "closed": "Закрыт"
+  "settings": {
+    "feature_flags": {
+      "title": "Дополнительные опции",
+      "keyboard_shortcuts_hide": {
+        "name": "Скрыть сочетания клавиш",
+        "desc": "Скрыть сочетания клавиш"
+      },
+      "name_hide": {
+        "name": "Скрыть имя при создании",
+        "desc": "Скрыть поле имени при создании нового вопроса"
+      },
+      "email_hide": {
+        "name": "Скрыть электронную почту при создании",
+        "desc": "Скрыть поле электронной почты при создании нового вопроса"
+      }
+    }
   },
-  "ticket_priorities": {
-    "low": "Низкий",
-    "medium": "Средний",
-    "high": "Высокий"
-  },
-  "ticket_unassigned": "Не назначен"
+  "ticket_states": {
+    "ticket_statuses": {
+      "open": "Открыт",
+      "closed": "Закрыт"
+    },
+    "ticket_priorities": {
+      "low": "Низкий",
+      "medium": "Средний",
+      "high": "Высокий"
+    },
+    "ticket_unassigned": "Не назначен",
+    "ticket_types": {
+      "service": "Обслуживание",
+      "feature": "Предложение",
+      "bug": "Баг",
+      "maintenance": "Тех. обслуживание",
+      "incident": "Инцидент",
+      "access": "Доступ",
+      "feedback": "Обратная связь",
+      "support": "Поддержка"
+    }
+  }
 }
