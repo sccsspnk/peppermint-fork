@@ -2,6 +2,7 @@ import { Switch } from "@headlessui/react";
 import { getCookie } from "cookies-next";
 import { useState } from "react";
 import { useUser } from "../../store/session";
+import useTranslation from "next-translate/useTranslation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,6 +11,7 @@ function classNames(...classes) {
 export default function UserNotifications() {
   const { user } = useUser();
   const token = getCookie("session");
+  const { t, lang } = useTranslation();
 
   const [ticket_creation, setTicket_creation] = useState(user.ticket_created);
   const [ticket_status, setTicket_status] = useState(
@@ -51,13 +53,13 @@ export default function UserNotifications() {
                       className="text-sm font-medium text-foreground"
                       passive
                     >
-                      Ticket Creation
+                      {t("settings_notifications:options.ticket_creation.title")}
                     </Switch.Label>
                     <Switch.Description
                       as="span"
                       className="text-sm text-foreground-muted"
                     >
-                      Get emailed when a new ticket is created
+                      {t("settings_notifications:options.ticket_creation.subtitle")}
                     </Switch.Description>
                   </span>
                   <Switch
@@ -88,14 +90,13 @@ export default function UserNotifications() {
                       className="text-sm font-medium text-foreground"
                       passive
                     >
-                      Ticket Status Change
+                      {t("settings_notifications:options.ticket_status_change.title")}
                     </Switch.Label>
                     <Switch.Description
                       as="span"
                       className="text-sm text-foreground-muted"
                     >
-                      Get emailed when a ticket you're assigned to has it's
-                      status changed
+                      {t("settings_notifications:options.ticket_status_change.subtitle")}
                     </Switch.Description>
                   </span>
                   <Switch
@@ -126,13 +127,13 @@ export default function UserNotifications() {
                       className="text-sm font-medium text-foreground"
                       passive
                     >
-                      Assgined new ticket
+                      {t("settings_notifications:options.ticket_assigned.title")}
                     </Switch.Label>
                     <Switch.Description
                       as="span"
                       className="text-sm text-foreground-muted"
                     >
-                      Get emailed when you get assigned a new ticket
+                      {t("settings_notifications:options.ticket_assigned.subtitle")}
                     </Switch.Description>
                   </span>
                   <Switch
@@ -163,13 +164,13 @@ export default function UserNotifications() {
                       className="text-sm font-medium text-foreground"
                       passive
                     >
-                      Ticket Comment
+                      {t("settings_notifications:options.ticket_comment.title")}
                     </Switch.Label>
                     <Switch.Description
                       as="span"
                       className="text-sm text-foreground-muted"
                     >
-                      Get emailed when a comment is added to your ticket
+                      {t("settings_notifications:options.ticket_comment.subtitle")}
                     </Switch.Description>
                   </span>
                   <Switch
@@ -197,7 +198,7 @@ export default function UserNotifications() {
                   type="button"
                   className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                 >
-                  save
+                  {t("common:buttons.save")}
                 </button>
               </div>
             </div>
