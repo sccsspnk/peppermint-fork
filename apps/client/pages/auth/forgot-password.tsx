@@ -28,8 +28,8 @@ export default function Login({}) {
         } else {
           toast({
             variant: "destructive",
-            title: t("forgot_password:errors.unknown.title"),
-            description: t("forgot_password:errors.unknown.desc"),
+            title: t("common:error.unknown.title"),
+            description: t("forgot_password:error.unknown.desc"),
           });
         }
       });

@@ -6,21 +6,15 @@
     "title": "Создать нового клиента",
     "subtitle": "Все поля обязательны"
   },
-  "inputs": {
-    "name": {
-      "placeholder": "Имя клиента"
-    },
-    "contact_name": {
-      "placeholder": "Имя контакта"
-    },
-    "contact_number": {
-      "placeholder": "Номер контакта"
-    }
+  "input_placeholders": {
+    "name": "Имя клиента",
+    "contact_name": "Имя контакта",
+    "contact_number": "Номер контакта"
   },
   "info": {
     "client_created": {
-      "title": "Успех",
-      "desc": "Агент создан успешно"
+      "title": "Создание клиента",
+      "desc": "Клиент создан успешно"
     }
   },
   "error": {

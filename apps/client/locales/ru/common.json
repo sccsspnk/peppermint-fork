@@ -2,7 +2,7 @@
   "main": {
     "product_name": "Peppermint"
   },
-  "warns": {
+  "warn": {
     "not_have_perms": "You do not have permission to perform this action",
     "not_admin": "Ты не админ"
   },
@@ -10,7 +10,7 @@
     "loading_data": "Загрузка данных...",
     "loading_failed": "Загрузка неуспешна"
   },
-  "errors": {
+  "error": {
     "unknown": {
       "title": "Ошибка"
     }
@@ -21,7 +21,8 @@
     "save": "Сохранить",
     "back": "Назад",
     "delete": "Удалить",
-    "create": "Создать"
+    "create": "Создать",
+    "create_ticket": "Создать тикет"
   },
   "options": {
     "enable": "Включить",

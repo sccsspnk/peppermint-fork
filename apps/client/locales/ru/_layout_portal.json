@@ -1,9 +1,9 @@
 {
-  "menu": {
+  "nav": {
     "create_ticket": "Создать тикет",
     "dashboard": "Панель",
-    "issues": {
-      "title": "Обращения",
+    "tickets": {
+      "title": "Тикеты",
       "open": "Открытые",
       "closed": "Закрытые"
     },

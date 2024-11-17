@@ -35,19 +35,19 @@ export default function PortalLayout({ children }: any) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert(t("common:warns.not_have_perms"));
+    alert(t("common:warn.not_have_perms"));
   }
 
   const navigation = [
     {
-      name: t("_layout_portal:menu.create_ticket"),
+      name: t("_layout_portal:nav.create_ticket"),
       href: `/portal/new`,
       icon: PlusIcon,
       current: location.pathname === "/new" ? true : false,
       initial: "c",
     },
     {
-      name: t("_layout_portal:menu.dashboard"),
+      name: t("_layout_portal:nav.dashboard"),
       href: `/portal`,
       icon: HomeIcon,
       current: location.pathname === "/" ? true : false,
@@ -220,7 +220,7 @@ export default function PortalLayout({ children }: any) {
                               className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                               aria-hidden="true"
                             />
-                            {t("_layout_portal:menu.settings")}
+                            {t("_layout_portal:nav.settings")}
                           </a>
                         </li>
                       </ul>
@@ -285,7 +285,7 @@ export default function PortalLayout({ children }: any) {
                         >
                           <TicketIcon className="h-4 w-4 shrink-0 mt-1" />
                           <span className="whitespace-nowrap">
-                            {t("_layout_portal:menu.issues.title")}
+                            {t("_layout_portal:nav.tickets.title")}
                           </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
@@ -305,7 +305,7 @@ export default function PortalLayout({ children }: any) {
                           )}
                         >
                           <span className="whitespace-nowrap">
-                            {t("_layout_portal:menu.issues.open")}
+                            {t("_layout_portal:nav.tickets.open")}
                           </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
@@ -326,7 +326,7 @@ export default function PortalLayout({ children }: any) {
                           )}
                         >
                           <span className="whitespace-nowrap">
-                            {t("_layout_portal:menu.issues.closed")}
+                            {t("_layout_portal:nav.tickets.closed")}
                           </span>
                           <div className="flex w-full justify-end float-right">
                             <span className="flex h-6 w-6 shrink-0 items-center bg-transparent border-none justify-center text-md font-medium">
@@ -368,7 +368,7 @@ export default function PortalLayout({ children }: any) {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <Menu.Button className="z-50 flex items-center p-1.5">
-                    <span className="sr-only">Open user menu</span>
+                    <span className="sr-only">{t("common:buttons.close")}</span>
                     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-500">
                       <span className="text-xs mt-0.5 font-medium leading-none text-white uppercase">
                         {user.name[0]}

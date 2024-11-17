@@ -49,7 +49,7 @@ export default function CreateUser() {
         } else {
           toast({
             variant: "destructive",
-            title: t("common:errors.unknown.title"),
+            title: t("common:error.unknown.title"),
             description: t("admin_users_internal_new:error.agent_create.desc"),
           });
         }
@@ -109,7 +109,7 @@ export default function CreateUser() {
                 <div className="w-1/2">
                   <label className="text-foreground font-bold">{t("common:credentials.password")}</label>
                   <input
-                    type="text"
+                    type="password"
                     className="px-3 py-2 text-foreground bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm"
                     placeholder=""
                     onChange={(e) => setPassword(e.target.value)}

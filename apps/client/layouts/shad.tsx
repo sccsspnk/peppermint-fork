@@ -23,7 +23,7 @@ export default function ShadLayout({ children }: any) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert(t("common:warns.you_not_have_perms"));
+    alert(t("common:warn.you_not_have_perms"));
   }
 
   if (user && user.external_user) {

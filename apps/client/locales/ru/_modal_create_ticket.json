@@ -1,29 +1,25 @@
 {
   "info": {
-    "success": {
-      "title": "Успех",
+    "ticket_creation": {
+      "title": "Создание тикета",
       "desc": "Тикет создан успешно"
     }
   },
-  "errors": {
+  "error": {
     "unknown": {
       "title": "Ошибка"
     }
   },
   "form": {
-    "title": "Новое обращение",
+    "title": "Новый тикет",
     "placeholders": {
-      "title": "Заголовок обращения",
+      "title": "Заголовок тикета",
       "name": "Название тикета",
-      "body": "Тело обращения"
-    },
-    "buttons": {
-      "close": "Отмена",
-      "create_ticket": "Создать тикет"
+      "body": "Тело тикета"
     },
     "dropdowns": {
       "select_client": "Выбрать клиента",
-      "select_engineer": "Выбрать инжинера"
+      "select_agent": "Выбрать инжинера"
     }
   }
 }

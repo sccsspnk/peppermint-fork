@@ -26,7 +26,7 @@ module.exports = {
     "/auth/forgot-password": ["forgot_password"],
     "/onboarding": ["onboarding"],
     "rgx:^/admin.*": ["_layout_admin"],
-    "rgx:^/portal.*": ["_layout_portal"],
+    "rgx:^/portal.*": ["_layout_portal", "dashboard"],
     "/admin/users/internal": ["admin_users_internal"],
     "/admin/users/internal/new": ["admin_users_internal_new"],
     "/admin/clients/new": ["admin_clients_new"],

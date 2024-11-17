@@ -40,7 +40,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert(t("common:warns.you_not_admin"));
+    alert(t("common:warn.you_not_admin"));
   }
 
   if (user && user.external_user) {
@@ -56,21 +56,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     ],
     navMain: [
       {
-        title: t("_sidebar_dashboard:options.new_issue"),
+        title: t("_sidebar_dashboard:nav.create_ticket"),
         url: ``,
         icon: ListPlus,
         isActive: location.pathname === "/" ? true : false,
         initial: "c",
       },
       {
-        title: t("_sidebar_dashboard:options.dashboard"),
+        title: t("_sidebar_dashboard:nav.dashboard"),
         url: `/`,
         icon: Building,
         isActive: location.pathname === "/" ? true : false,
         initial: "h",
       },
       {
-        title: t("_sidebar_dashboard:options.documents"),
+        title: t("_sidebar_dashboard:nav.documents"),
         url: `/documents`,
         icon: FileText,
         isActive: location.pathname === "/documents" ? true : false,
@@ -78,26 +78,26 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         internal: true,
       },
       {
-        title: t("_sidebar_dashboard:options.issues.title"),
+        title: t("_sidebar_dashboard:nav.tickets.title"),
         url: `/issues`,
         icon: SquareKanban,
         isActive: location.pathname === "/issues" ? true : false,
         initial: "t",
         items: [
           {
-            title: t("_sidebar_dashboard:options.issues.open"),
+            title: t("_sidebar_dashboard:nav.tickets.open"),
             url: "/issues/open",
             initial: "o",
           },
           {
-            title: t("_sidebar_dashboard:options.issues.closed"),
+            title: t("_sidebar_dashboard:nav.tickets.closed"),
             url: "/issues/closed",
             initial: "f",
           },
         ],
       },
       {
-        title: t("_sidebar_dashboard:options.admin_panel"),
+        title: t("_sidebar_dashboard:nav.admin_panel"),
         url: "/admin",
         icon: Settings,
         isActive: true,

@@ -22,11 +22,11 @@ async function main() {
     });
 
     await prisma.client.upsert({
-      where: { email: `internal@admin.com` },
+      where: { email: `admin@admin.com` },
       update: {},
       create: {
-        email: `internal@admin.com`,
-        name: "internal",
+        email: `admin@admin.com`,
+        name: "admin",
         contactName: "admin",
         number: "123456789",
         active: true,
@@ -66,7 +66,7 @@ async function main() {
             </head>
             <div id="" style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">Ticket Created<div></div>
             </div>
-  
+
             <body style="background-color:#ffffff;margin:0 auto;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Roboto&#x27;, &#x27;Oxygen&#x27;, &#x27;Ubuntu&#x27;, &#x27;Cantarell&#x27;, &#x27;Fira Sans&#x27;, &#x27;Droid Sans&#x27;, &#x27;Helvetica Neue&#x27;, sans-serif">
               <table align="center" role="presentation" cellSpacing="0" cellPadding="0" border="0" width="100%" style="max-width:600px;margin:0 auto">
                 <tr style="width:100%">
@@ -77,8 +77,8 @@ async function main() {
                     <p style="font-size:20px;line-height:28px;margin:4px 0">
                     <p>Hello, <br>A new ticket has been assigned to you.</p>
                     <p style="font-size:14px;margin:16px 0;color:#000">
-                    Kind regards, 
-  
+                    Kind regards,
+
                     <table align="center" border="0" cellPadding="0" cellSpacing="0" role="presentation" width="100%">
                       <tbody>
                         <tr>
@@ -117,7 +117,7 @@ async function main() {
                     <p style="font-size:20px;line-height:28px;margin:4px 0">
                     <p>{{comment}}</p>
                     <p style="font-size:14px;margin:16px 0;color:#000">
-                    Kind regards, 
+                    Kind regards,
 
                     <table align="center" border="0" cellPadding="0" cellSpacing="0" role="presentation" width="100%">
                       <tbody>
@@ -157,7 +157,7 @@ async function main() {
                     <p style="font-size:20px;line-height:28px;margin:4px 0">
                     <p>Hello, <br>Your ticket has now been created and logged.</p>
                     <p style="font-size:14px;margin:16px 0;color:#000">
-                    Kind regards, 
+                    Kind regards,
 
                     <table align="center" border="0" cellPadding="0" cellSpacing="0" role="presentation" width="100%">
                       <tbody>
@@ -181,13 +181,13 @@ async function main() {
         {
           html: ` <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
           <html lang="en">
-          
+
             <head>
               <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
             </head>
             <div id="" style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">Ticket Created<div></div>
             </div>
-          
+
             <body style="background-color:#ffffff;margin:0 auto;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Roboto&#x27;, &#x27;Oxygen&#x27;, &#x27;Ubuntu&#x27;, &#x27;Cantarell&#x27;, &#x27;Fira Sans&#x27;, &#x27;Droid Sans&#x27;, &#x27;Helvetica Neue&#x27;, sans-serif">
               <table align="center" role="presentation" cellSpacing="0" cellPadding="0" border="0" width="100%" style="max-width:600px;margin:0 auto">
                 <tr style="width:100%">
@@ -202,11 +202,11 @@ async function main() {
                     <h1 style="color:#1d1c1d;font-size:16px;font-weight:700;margin:10px 0;padding:0;line-height:42px">Ticket: {{title}}</h1>
                     <p style="font-size:20px;line-height:28px;margin:4px 0">
                     <p>Your Ticket, now has a status of {{status}}</p>
-                    Kind regards, 
+                    Kind regards,
                     <br>
                     Peppermint ticket management
                     </p>
-                    
+
                     <table align="center" border="0" cellPadding="0" cellSpacing="0" role="presentation" width="100%">
                       <tbody>
                         <tr>
@@ -222,7 +222,7 @@ async function main() {
                 </tr>
               </table>
             </body>
-          
+
           </html>`,
           type: "ticket_status_changed",
         },

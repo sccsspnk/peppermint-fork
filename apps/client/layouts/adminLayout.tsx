@@ -36,7 +36,7 @@ export default function AdminLayout({ children }: any) {
     return (
       <div className="flex items-center justify-center h-screen">
         <h1 className="text-4xl font-bold">
-          {t("common:warns.not_admin")}
+          {t("common:warn.not_admin")}
         </h1>
       </div>
     );
@@ -50,49 +50,49 @@ export default function AdminLayout({ children }: any) {
       icon: MoveLeft,
     },
     {
-      name: t("_layout_admin:menu.users"),
+      name: t("_layout_admin:nav.users"),
       href: "/admin/users/internal",
       current: location.pathname === "/admin/users/internal",
       icon: UserRound,
     },
     {
-      name: t("_layout_admin:menu.clients"),
+      name: t("_layout_admin:nav.clients"),
       href: "/admin/clients",
       current: location.pathname === "/admin/clients",
       icon: ContactIcon,
     },
     {
-      name: t("_layout_admin:menu.email_queues"),
+      name: t("_layout_admin:nav.email_queues"),
       href: "/admin/email-queues",
       current: location.pathname === "/admin/email-queues",
       icon: Mail,
     },
     {
-      name: t("_layout_admin:menu.webhooks"),
+      name: t("_layout_admin:nav.webhooks"),
       href: "/admin/webhooks",
       current: location.pathname === "/admin/webhooks",
       icon: Webhook,
     },
     {
-      name: t("_layout_admin:menu.smtp_email"),
+      name: t("_layout_admin:nav.smtp_email"),
       href: "/admin/smtp",
       current: location.pathname === "/admin/smtp",
       icon: Mailbox,
     },
     {
-      name: t("_layout_admin:menu.authentication"),
+      name: t("_layout_admin:nav.authentication"),
       href: "/admin/authentication",
       current: location.pathname === "/admin/authentication",
       icon: KeyRound,
     },
     {
-      name: t("_layout_admin:menu.roles"),
+      name: t("_layout_admin:nav.roles"),
       href: "/admin/roles",
       current: location.pathname === "/admin/roles",
       icon: RollerCoaster,
     },
     {
-      name: t("_layout_admin:menu.logs"),
+      name: t("_layout_admin:nav.logs"),
       href: "/admin/logs",
       current: location.pathname === "/admin/logs",
       icon: FileText,

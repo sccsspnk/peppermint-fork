@@ -1,10 +1,10 @@
 {
-  "options": {
-    "new_issue": "Новое обращение",
+  "nav": {
+    "create_ticket": "Создать тикет",
     "dashboard": "Панель",
     "documents": "Документы",
-    "issues": {
-      "title": "Обращения",
+    "tickets": {
+      "title": "Тикеты",
       "open": "Открытые",
       "closed": "Закрытые"
     },

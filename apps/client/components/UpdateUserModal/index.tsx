@@ -37,7 +37,7 @@ export default function UpdateUserModal({ user }) {
         } else {
           toast({
             variant: "destructive",
-            title: t("common:errors.unknown.title"),
+            title: t("common:error.unknown.title"),
             description: res.message,
           });
         }

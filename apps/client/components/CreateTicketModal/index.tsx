@@ -29,14 +29,14 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
   const { state } = useSidebar();
 
   const type = [
-    { id: 1, name: t("common:ticket_states.ticket_types.service") },
-    { id: 2, name: t("common:ticket_states.ticket_types.feature") },
-    { id: 3, name: t("common:ticket_states.ticket_types.bug") },
-    { id: 4, name: t("common:ticket_states.ticket_types.maintenance") },
-    { id: 5, name: t("common:ticket_states.ticket_types.incident") },
-    { id: 6, name: t("common:ticket_states.ticket_types.access") },
-    { id: 7, name: t("common:ticket_states.ticket_types.feedback") },
-    { id: 8, name: t("common:ticket_states.ticket_types.support") },
+    { id: 1, named_id: "service", name: t("common:ticket_states.ticket_types.service") },
+    { id: 2, named_id: "feature", name: t("common:ticket_states.ticket_types.feature") },
+    { id: 3, named_id: "bug", name: t("common:ticket_states.ticket_types.bug") },
+    { id: 4, named_id: "maintenance", name: t("common:ticket_states.ticket_types.maintenance") },
+    { id: 5, named_id: "incident", name: t("common:ticket_states.ticket_types.incident") },
+    { id: 6, named_id: "access", name: t("common:ticket_states.ticket_types.access") },
+    { id: 7, named_id: "feedback", name: t("common:ticket_states.ticket_types.feedback") },
+    { id: 8, named_id: "support", name: t("common:ticket_states.ticket_types.support") },
   ];
 
   const [name, setName] = useState("");
@@ -103,7 +103,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
         detail: issue,
         priority,
         engineer,
-        type: selected.name,
+        type: selected.named_id,
         createdBy: {
           id: user.id,
           name: user.name,
@@ -117,14 +117,14 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
         if (res.success === true) {
           toast({
             variant: "default",
-            title: t("_modal_create_ticket:info.success.title"),
-            description: t("_modal_create_ticket:info.success.desc"),
+            title: t("_modal_create_ticket:info.ticket_creation.title"),
+            description: t("_modal_create_ticket:info.ticket_creation.desc"),
           });
           router.push("/issues");
         } else {
           toast({
             variant: "destructive",
-            title: t("_modal_create_ticket:errors.unknown.title"),
+            title: t("common:error.unknown.title"),
             description: res.error,
           });
         }
@@ -226,7 +226,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">
-                      {t("_modal_create_ticket:form.buttons.close")}
+                      {t("common:buttons.close")}
                     </span>
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
@@ -408,7 +408,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                                   <span className="block truncate">
                                     {engineer === undefined
                                       ? t(
-                                          "_modal_create_ticket:form.dropdowns.select_engineer"
+                                          "_modal_create_ticket:form.dropdowns.select_agent"
                                         )
                                       : engineer.name}
                                   </span>
@@ -614,7 +614,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                         type="button"
                         className="inline-flex justify-center rounded-md shadow-sm px-2.5 py-1.5 border border-transparent text-xs bg-green-600 font-medium text-white hover:bg-green-700 focus:outline-none "
                       >
-                        {t("_modal_create_ticket:form.buttons.create_ticket")}
+                        {t("common:buttons.create")}
                       </button>
                     </div>
                   </div>

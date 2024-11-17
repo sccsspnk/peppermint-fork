@@ -87,17 +87,17 @@ export default function Home() {
 
   const stats = [
     {
-      name: t("dashboard:cards.open_issues"),
+      name: t("dashboard:cards.open_tickets"),
       stat: openTickets,
       href: "/issues",
     },
     {
-      name: t("dashboard:cards.completed_issues"),
+      name: t("dashboard:cards.completed_tickets"),
       stat: completedTickets,
       href: "/issues?filter=closed",
     },
     {
-      name: t("dashboard:cards.unassigned_issues"),
+      name: t("dashboard:cards.unassigned_tickets"),
       stat: unassigned,
       href: "/issues?filter=unassigned",
     },
@@ -175,14 +175,14 @@ export default function Home() {
                       />
                     </svg>
                     <span className="mt-2 block text-sm font-semibold text-gray-900 dark:text-white">
-                      {t("dashboard:cards.create_issue")}
+                      {t("dashboard:cards.create_ticket")}
                     </span>
                   </button>
                 </>
               ) : (
                 <>
                   <span className="font-bold text-2xl">
-                    {t("dashboard:recent_issues.title")}
+                    {t("dashboard:recent_tickets.title")}
                   </span>
                   <div className="-mx-4 sm:-mx-0 w-full">
                     <table className="min-w-full divide-y divide-gray-300">
@@ -192,25 +192,25 @@ export default function Home() {
                             scope="col"
                             className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-0"
                           >
-                            {t("dashboard:recent_issues.table_tabs.title")}
+                            {t("dashboard:recent_tickets.table_tabs.title")}
                           </th>
                           <th
                             scope="col"
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white lg:table-cell"
                           >
-                            {t("dashboard:recent_issues.table_tabs.priority")}
+                            {t("dashboard:recent_tickets.table_tabs.priority")}
                           </th>
                           <th
                             scope="col"
                             className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white sm:table-cell"
                           >
-                            {t("dashboard:recent_issues.table_tabs.status")}
+                            {t("dashboard:recent_tickets.table_tabs.status")}
                           </th>
                           <th
                             scope="col"
                             className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white"
                           >
-                            {t("dashboard:recent_issues.table_tabs.created")}
+                            {t("dashboard:recent_tickets.table_tabs.created")}
                           </th>
 
                           <th
@@ -218,7 +218,7 @@ export default function Home() {
                             className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white"
                           >
                             {t(
-                              "dashboard:recent_issues.table_tabs.assigned_to"
+                              "dashboard:recent_tickets.table_tabs.assigned_to"
                             )}
                           </th>
                         </tr>

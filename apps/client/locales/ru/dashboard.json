@@ -1,12 +1,12 @@
 {
   "cards": {
-    "open_issues": "Открытые",
-    "completed_issues": "Выполненные",
-    "unassigned_issues": "Неназначенные",
-    "create_issue": "Создать своё первое обращение"
+    "open_tickets": "Открытые",
+    "completed_tickets": "Выполненные",
+    "unassigned_tickets": "Неназначенные",
+    "create_ticket": "Создать свой первый тикет"
   },
-  "recent_issues": {
-    "title": "Недавние обращения",
+  "recent_tickets": {
+    "title": "Недавние тикеты",
     "table_tabs": {
       "title": "Заголовок",
       "priority": "Приоритет",

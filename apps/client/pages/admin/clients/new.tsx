@@ -46,7 +46,7 @@ export default function CreateClientPage() {
         } else {
           toast({
             variant: "destructive",
-            title: t("common:errors.unknown.title"),
+            title: t("common:error.unknown.title"),
             description: t("admin_clients_new:error.client_create.desc"),
           });
         }

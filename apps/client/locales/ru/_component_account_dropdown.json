@@ -1,6 +1,6 @@
 {
   "title": "Мой аккаунт",
-  "options": {
+  "menu": {
     "profile": "Профиль",
     "settings": "Настройки",
     "github": "Github",

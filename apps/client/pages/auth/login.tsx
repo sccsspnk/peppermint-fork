@@ -38,8 +38,8 @@ export default function Login({}) {
           } else {
             toast({
               variant: "destructive",
-              title: t("auth_login:errors.unknown.title"),
-              description: t("auth_login:errors.unknown.desc"),
+              title: t("common:error.unknown.title"),
+              description: t("auth_login:error.unknown.desc"),
             });
           }
         });
@@ -47,8 +47,8 @@ export default function Login({}) {
       console.error(error);
       toast({
         variant: "destructive",
-        title: t("auth_login:errors.database.title"),
-        description: t("auth_login:errors.database.desc"),
+        title: t("auth_login:error.database.title"),
+        description: t("auth_login:error.database.desc"),
       });
     }
   }
@@ -74,8 +74,8 @@ export default function Login({}) {
     if (router.query.error) {
       toast({
         variant: "destructive",
-        title: t("auth_login:errors.account_sso.title"),
-        description: t("auth_login:errors.account_sso.desc"),
+        title: t("auth_login:error.account_sso.title"),
+        description: t("auth_login:error.account_sso.desc"),
       });
     }
   }, [router]);
