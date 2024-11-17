@@ -29,7 +29,7 @@ export default function Settings({ children }) {
                     aria-current="page"
                   >
                     <Bell className="flex-shrink-0  h-5 w-5 text-foreground" />
-                    <span className="truncate">{t("notifications")}</span>
+                    <span className="truncate">{t("_layout_settings:options.notifications")}</span>
                   </Link>
 
                   <Link
@@ -42,7 +42,7 @@ export default function Settings({ children }) {
                     )}
                   >
                     <KeyRound className="flex-shrink-0  h-5 w-5 text-foreground" />
-                    <span>{t("reset_password")}</span>
+                    <span>{t("_layout_settings:options.change_password")}</span>
                   </Link>
 
                   <Link
@@ -55,7 +55,7 @@ export default function Settings({ children }) {
                     )}
                   >
                     <Flag className="flex-shrink-0  h-5 w-5 text-foreground" />
-                    <span>Feature Flags</span>
+                    <span>{t("_layout_settings:options.feature_flags")}</span>
                   </Link>
 
                   <Link
@@ -68,7 +68,7 @@ export default function Settings({ children }) {
                     )}
                   >
                     <SearchSlashIcon className="flex-shrink-0  h-5 w-5 text-foreground" />
-                    <span>Sessions</span>
+                    <span>{t("_layout_settings:options.sessions")}</span>
                   </Link>
                 </nav>
               </aside>

@@ -20,7 +20,7 @@ module.exports = {
   defaultLocale: "en",
   pages: {
     "*": ["common"],
-    "rgx:^(/|/settings.*)": ["_sidebar_dashboard", "dashboard", "_modal_create_ticket", "_component_account_dropdown"],
+    "rgx:^(/|/settings.*)": ["_layout_settings", "_sidebar_dashboard", "dashboard", "_modal_create_ticket", "_component_account_dropdown"],
     "/auth/login": ["auth_login"],
     "/auth/forgot-password": ["forgot_password"],
     "/onboarding": ["onboarding"],

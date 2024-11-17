@@ -1,0 +1,8 @@
+{
+  "options": {
+    "notifications": "Уведомления",
+    "change_password": "Изменить пароль",
+    "feature_flags": "Дополнительные опции",
+    "sessions": "Сессии"
+  }
+}
