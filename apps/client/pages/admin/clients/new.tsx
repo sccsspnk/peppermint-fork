@@ -2,8 +2,10 @@ import { toast } from "@/shadcn/hooks/use-toast";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function CreateClientPage() {
+  const { t } = useTranslation();
   const router = useRouter();
 
   const token = getCookie("session");
@@ -37,15 +39,15 @@ export default function CreateClientPage() {
         if (res.success === true) {
           toast({
             variant: "default",
-            title: "Success",
-            description: "Client created succesfully",
+            title: t("admin_clients_new:info.client_created.title"),
+            description: t("admin_clients_new:info.client_created.desc"),
           });
           router.push("/admin/clients");
         } else {
           toast({
             variant: "destructive",
-            title: "Error",
-            description: "Whoops! please wait and try again! 🤥",
+            title: t("common:errors.unknown.title"),
+            description: t("admin_clients_new:error.client_create.desc"),
           });
         }
       });
@@ -58,7 +60,7 @@ export default function CreateClientPage() {
           <div className="pt-10 pb-16 divide-y-2">
             <div className="px-4 sm:px-6 md:px-0">
               <h1 className="text-3xl font-extrabold text-foreground">
-                Register a new client
+                {t("admin_clients_new:page.title")}
               </h1>
             </div>
             <div className="py-4">
@@ -67,16 +69,16 @@ export default function CreateClientPage() {
                   <div className="sm:flex sm:items-start">
                     <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
                       <h3 className="text-lg leading-6 font-medium text-foreground">
-                        Create a new client
+                        {t("admin_clients_new:form.title")}
                       </h3>
                       <h3 className="text-xs font-normal text-foreground">
-                        All fields are required!
+                        {t("admin_clients_new:form.subtitle")}
                       </h3>
                       <div className="mt-2 space-y-4">
                         <input
                           type="text"
                           className="shadow-sm text-foreground bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-3/4 sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Enter client name here..."
+                          placeholder={t("admin_clients_new:inputs.name.placeholder")}
                           name="name"
                           onChange={(e) => setName(e.target.value)}
                         />
@@ -84,21 +86,21 @@ export default function CreateClientPage() {
                         <input
                           type="email"
                           className="shadow-sm text-foreground bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Enter email here...."
+                          placeholder={t("common:credentials.email")}
                           onChange={(e) => setEmail(e.target.value)}
                         />
 
                         <input
                           type="text"
                           className="shadow-sm text-foreground bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Enter client primary contact name here..."
+                          placeholder={t("admin_clients_new:inputs.contact_name.placeholder")}
                           onChange={(e) => setContactName(e.target.value)}
                         />
 
                         <input
                           type="text"
                           className="shadow-sm  text-foreground bg-transparent focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                          placeholder="Enter client primary contact number here..."
+                          placeholder={t("admin_clients_new:inputs.contact_number.placeholder")}
                           onChange={(e) => setNumber(e.target.value)}
                         />
                       </div>
@@ -114,7 +116,7 @@ export default function CreateClientPage() {
                     createClient();
                   }}
                 >
-                  Save
+                  {t("common:buttons.save")}
                 </button>
               </div>
             </div>

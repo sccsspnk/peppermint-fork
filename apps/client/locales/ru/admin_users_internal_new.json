@@ -1,0 +1,34 @@
+{
+  "page": {
+    "title": "Создание агента"
+  },
+  "inputs": {
+    "name": {
+      "title": "Имя",
+      "placeholder": "Джон Дои"
+    },
+    "email": {
+      "placeholder": "example@example.com"
+    },
+    "language": {
+      "title": "Язык"
+    },
+    "is_admin": {
+      "title": "Админ?"
+    },
+    "enable_notifications": {
+      "title": "Включить уведомления"
+    }
+  },
+  "info": {
+    "agent_created": {
+      "title": "Успех",
+      "desc": "Агент создан успешно"
+    }
+  },
+  "error": {
+    "agent_create": {
+      "desc": "Упс! Попробуйте позже, пожалуйста"
+    }
+  }
+}

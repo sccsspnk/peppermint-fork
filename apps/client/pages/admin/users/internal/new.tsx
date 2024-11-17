@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useUser } from "../../../../store/session";
 import { toast } from "@/shadcn/hooks/use-toast";
+import useTranslation from "next-translate/useTranslation";
 
 export default function CreateUser() {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +16,7 @@ export default function CreateUser() {
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState(false);
   const [language, setLanguage] = useState("en");
+  const { t } = useTranslation();
 
   const { user } = useUser();
 
@@ -41,14 +43,14 @@ export default function CreateUser() {
           router.push("/admin/users/internal");
           toast({
             variant: "default",
-            title: "Success",
-            description: "User updated succesfully",
+            title: t("admin_users_internal_new:info.agent_created.title"),
+            description: t("admin_users_internal_new:info.agent_created.desc"),
           });
         } else {
           toast({
             variant: "destructive",
-            title: "There has been an error ",
-            description: "Whoops! please wait and try again!",
+            title: t("common:errors.unknown.title"),
+            description: t("admin_users_internal_new:error.agent_create.desc"),
           });
         }
       });
@@ -79,33 +81,33 @@ export default function CreateUser() {
           <div className="pt-10 pb-6 divide-y-2">
             <div className="px-4 sm:px-6 md:px-0">
               <h1 className="text-3xl font-extrabold text-foreground">
-                Add a new user
+                {t("admin_users_internal_new:page.title")}
               </h1>
             </div>
           </div>
           <div className="">
             <Flex gap="4" direction="column" align="start">
               <div className="w-1/2">
-                <label className="text-foreground font-bold">Name</label>
+                <label className="text-foreground font-bold">{t("admin_users_internal_new:inputs.name.title")}</label>
                 <input
                   type="text"
                   className="px-3 py-2 text-foreground bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm"
-                  placeholder="John Doe"
+                  placeholder={t("admin_users_internal_new:inputs.name.placeholder")}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="w-1/2">
-                <label className="text-foreground font-bold">Email</label>
+                <label className="text-foreground font-bold">{t("common:credentials.email")}</label>
                 <input
                   type="text"
                   className="px-3 py-2 text-foreground bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm"
-                  placeholder="John.Doe@test.com"
+                  placeholder={t("admin_users_internal_new:inputs.email.placeholder")}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               {!user.sso_active && (
                 <div className="w-1/2">
-                  <label className="text-foreground font-bold">Password</label>
+                  <label className="text-foreground font-bold">{t("common:credentials.password")}</label>
                   <input
                     type="text"
                     className="px-3 py-2 text-foreground bg-transparent border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm"
@@ -115,7 +117,7 @@ export default function CreateUser() {
                 </div>
               )}
               <div className="w-1/2 flex flex-col">
-                <label className="text-foreground font-bold">Language</label>
+                <label className="text-foreground font-bold">{t("admin_users_internal_new:inputs.language.title")}</label>
                 <select
                   id="language"
                   name="language"
@@ -138,10 +140,11 @@ export default function CreateUser() {
                   <option value="hu">Hungarian</option>
                   <option value="th">Thai (ภาษาไทย)</option>
                   <option value="zh-CN">Simplified Chinese (简体中文)</option>
+                  <option value="ru">Russian</option>
                 </select>
               </div>
               <div>
-                <label className="text-foreground font-bold">Admin User</label>
+                <label className="text-foreground font-bold">{t("admin_users_internal_new:inputs.is_admin.title")}</label>
                 <div className="flex flex-row space-x-2 items-center">
                   <Switch
                     checked={admin}
@@ -150,7 +153,7 @@ export default function CreateUser() {
                       admin ? "bg-blue-600" : "bg-gray-200"
                     } relative inline-flex h-6 w-11 items-center rounded-full`}
                   >
-                    <span className="sr-only">Enable notifications</span>
+                    <span className="sr-only">{t("admin_users_internal_new:inputs.enable_notifications.title")}</span>
                     <span
                       className={`${
                         admin ? "translate-x-6" : "translate-x-1"
@@ -167,7 +170,7 @@ export default function CreateUser() {
                   type="button"
                   className="rounded-md bg-green-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-500"
                 >
-                  Create User
+                  {t("common:buttons.create")}
                 </button>
               </div>
             </Flex>

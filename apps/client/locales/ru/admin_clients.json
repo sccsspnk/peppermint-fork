@@ -1,0 +1,24 @@
+{
+  "page": {
+    "title": "Клиенты",
+    "subtitle": "Список всех ваших зарегистрированных клиентов"
+  },
+  "buttons": {
+    "ticket_creation_form": "Форма создания тикета",
+    "client_portal": "Портал клиента",
+    "client_registration": "Форма регистрации клиента",
+    "new_client": "Новый клиент"
+  },
+  "table": {
+    "client_name": "Имя клиента",
+    "contact_name": "Имя контакта",
+    "actions": "Действия",
+    "clients": {
+      "role": "Роль",
+      "primary_contact": "Основной контакт"
+    }
+  },
+  "filter": {
+    "placeholder": "Вводите для фильтрации"
+  }
+}

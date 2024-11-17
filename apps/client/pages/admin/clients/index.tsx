@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { useQuery } from "react-query";
+import useTranslation from "next-translate/useTranslation";
 import {
   useFilters,
   useGlobalFilter,
@@ -23,6 +24,7 @@ const fetchAllClients = async () => {
 };
 
 function DefaultColumnFilter({ column: { filterValue, setFilter } }: any) {
+  const { t } = useTranslation();
   return (
     <input
       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
@@ -31,7 +33,7 @@ function DefaultColumnFilter({ column: { filterValue, setFilter } }: any) {
       onChange={(e) => {
         setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
       }}
-      placeholder="Type to filter"
+      placeholder={t("admin_clients:filter.placeholder")}
     />
   );
 }
@@ -102,6 +104,7 @@ function Table({ columns, data }: any) {
     useGlobalFilter,
     usePagination
   );
+  const { t } = useTranslation();
 
   return (
     <div className="overflow-x-auto md:-mx-6 lg:-mx-8">
@@ -213,6 +216,7 @@ export default function Clients() {
   );
 
   const router = useRouter();
+  const { t } = useTranslation();
 
   async function deleteClient(id: any) {
     await fetch(`/api/v1/clients/${id}/delete-client`, {
@@ -230,18 +234,18 @@ export default function Clients() {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Client Name",
+        Header: t("admin_clients:table.client_name"),
         accessor: "name",
         width: 10,
         id: "client_name",
       },
       {
-        Header: "Contact Name",
+        Header: t("admin_clients:table.contact_name"),
         accessor: "contactName",
         id: "contactName",
       },
       {
-        Header: "",
+        Header: t("admin_clients:table.actions"),
         id: "actions",
         Cell: ({ row, value }: any) => {
           return (
@@ -253,7 +257,7 @@ export default function Clients() {
                 className="rounded bg-white hover:bg-red-100 px-2.5 py-1.5 text-xs font-semibold text-red-600 hover:text-white shadow-sm ring-1 ring-inset ring-gray-300"
                 onClick={() => deleteClient(row.original.id)}
               >
-                Delete
+                {t("common:buttons.delete")}
               </button>
             </div>
           );
@@ -269,14 +273,14 @@ export default function Clients() {
         <div className="pt-10 pb-16 divide-y-2">
           <div className="px-4 sm:px-6 md:px-0">
             <h1 className="text-3xl font-extrabold text-gray-900  dark:text-white">
-              Clients
+              {t("admin_clients:page.title")}
             </h1>
           </div>
           <div className="px-4 sm:px-6 md:px-0">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto mt-4">
                 <p className="mt-2 text-sm text-gray-700  dark:text-white">
-                  A list of all internal users of your instance.
+                  {t("admin_clients:page.subtitle")}
                 </p>
               </div>
               <div className="sm:ml-16 mt-5 flex flex-row space-x-2">
@@ -285,42 +289,41 @@ export default function Clients() {
                   type="button"
                   className="inline-flex items-center px-2.5 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-gray-700 bg-white hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Guest Ticket Url
+                  {t("admin_clients:buttons.ticket_creation_form")}
                 </Link>
                 <Link
                   href={`/portal/`}
                   type="button"
                   className="inline-flex items-center px-2.5 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-gray-700 bg-white hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Portal Url
+                  {t("admin_clients:buttons.client_portal")}
                 </Link>
                 <Link
                   href={`/auth/register`}
                   type="button"
                   className="inline-flex items-center px-2.5 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-gray-700 bg-white hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Portal Register
+                  {t("admin_clients:buttons.client_registration")}
                 </Link>
                 <Link
                   href="/admin/clients/new"
                   className="rounded bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
-                  New Client
+                  {t("admin_clients:buttons.new_client")}
                 </Link>
               </div>
             </div>
             <div className="py-4">
               {status === "loading" && (
                 <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
-                  <h2> Loading data ... </h2>
+                  <h2>{t("common:info.loading_data")}</h2>
                 </div>
               )}
 
               {status === "error" && (
                 <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
                   <h2 className="text-2xl font-bold">
-                    {" "}
-                    Error fetching data ...{" "}
+                    {t("common:info.loading_failed")}
                   </h2>
                 </div>
               )}
@@ -345,10 +348,10 @@ export default function Clients() {
                             <dd className="text-gray-500 text-sm">
                               {client.number}
                             </dd>
-                            <dt className="sr-only">Role</dt>
+                            <dt className="sr-only">{t("admin_clients:table.clients.role")}</dt>
                             <dd className="mt-3">
                               <span>
-                                Primary Contact - {client.contactName}
+                                {t("admin_clients.table.clients.primary_contact")} - {client.contactName}
                               </span>
                             </dd>
                           </dl>
