@@ -64,14 +64,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       },
       {
         title: t("_sidebar_dashboard:options.dashboard"),
-        url: `/${locale}/`,
+        url: `/`,
         icon: Building,
         isActive: location.pathname === "/" ? true : false,
         initial: "h",
       },
       {
         title: t("_sidebar_dashboard:options.documents"),
-        url: `/${locale}/documents`,
+        url: `/documents`,
         icon: FileText,
         isActive: location.pathname === "/documents" ? true : false,
         initial: "d",
@@ -79,7 +79,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       },
       {
         title: t("_sidebar_dashboard:options.issues.title"),
-        url: `/${locale}/issues`,
+        url: `/issues`,
         icon: SquareKanban,
         isActive: location.pathname === "/issues" ? true : false,
         initial: "t",

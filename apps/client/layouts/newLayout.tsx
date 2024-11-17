@@ -47,14 +47,14 @@ export default function NewLayout({ children }: any) {
   const navigation = [
     {
       name: t("sl_dashboard"),
-      href: `/${locale}/`,
+      href: `/`,
       icon: Building,
       current: location.pathname === "/" ? true : false,
       initial: "h",
     },
     {
       name: "Documents",
-      href: `/${locale}/documents`,
+      href: `/documents`,
       icon: FileText,
       current: location.pathname === "/documents" ? true : false,
       initial: "d",

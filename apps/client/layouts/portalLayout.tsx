@@ -41,14 +41,14 @@ export default function PortalLayout({ children }: any) {
   const navigation = [
     {
       name: t("_layout_portal:menu.create_ticket"),
-      href: `/${locale}/portal/new`,
+      href: `/portal/new`,
       icon: PlusIcon,
       current: location.pathname === "/new" ? true : false,
       initial: "c",
     },
     {
       name: t("_layout_portal:menu.dashboard"),
-      href: `/${locale}/portal`,
+      href: `/portal`,
       icon: HomeIcon,
       current: location.pathname === "/" ? true : false,
       initial: "h",
