@@ -40,7 +40,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert("You do not have the correct perms for that action.");
+    alert(t("common:warns.you_not_admin"));
   }
 
   if (user && user.external_user) {
@@ -50,27 +50,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const data = {
     teams: [
       {
-        name: "Peppermint",
-        plan: `version: ${process.env.NEXT_PUBLIC_CLIENT_VERSION}`,
+        name: t("common:main.product_name"),
+        plan: `${t("common:nav.version")}: ${process.env.NEXT_PUBLIC_CLIENT_VERSION}`,
       },
     ],
     navMain: [
       {
-        title: "New Issue",
+        title: t("_sidebar_dashboard:options.new_issue"),
         url: ``,
         icon: ListPlus,
         isActive: location.pathname === "/" ? true : false,
         initial: "c",
       },
       {
-        title: t("sl_dashboard"),
+        title: t("_sidebar_dashboard:options.dashboard"),
         url: `/${locale}/`,
         icon: Building,
         isActive: location.pathname === "/" ? true : false,
         initial: "h",
       },
       {
-        title: "Documents",
+        title: t("_sidebar_dashboard:options.documents"),
         url: `/${locale}/documents`,
         icon: FileText,
         isActive: location.pathname === "/documents" ? true : false,
@@ -78,26 +78,26 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         internal: true,
       },
       {
-        title: "Issues",
+        title: t("_sidebar_dashboard:options.issues.title"),
         url: `/${locale}/issues`,
         icon: SquareKanban,
         isActive: location.pathname === "/issues" ? true : false,
         initial: "t",
         items: [
           {
-            title: "Open",
+            title: t("_sidebar_dashboard:options.issues.open"),
             url: "/issues/open",
             initial: "o",
           },
           {
-            title: "Closed",
+            title: t("_sidebar_dashboard:options.issues.closed"),
             url: "/issues/closed",
             initial: "f",
           },
         ],
       },
       {
-        title: "Admin",
+        title: t("_sidebar_dashboard:options.admin_panel"),
         url: "/admin",
         icon: Settings,
         isActive: true,
@@ -171,9 +171,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <img src="/favicon/favicon-32x32.png" className="size-4" />
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-semibold text-xl">Peppermint</span>
+            <span className="truncate font-semibold text-xl">{t("common:main.product_name")}</span>
             <span className="truncate text-xs">
-              version: {process.env.NEXT_PUBLIC_CLIENT_VERSION}
+              {t("common:nav.version")}: {process.env.NEXT_PUBLIC_CLIENT_VERSION}
             </span>
           </div>
         </div>

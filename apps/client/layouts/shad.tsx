@@ -23,7 +23,7 @@ export default function ShadLayout({ children }: any) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert("You do not have the correct perms for that action.");
+    alert(t("common:warns.you_not_have_perms"));
   }
 
   if (user && user.external_user) {
@@ -44,7 +44,7 @@ export default function ShadLayout({ children }: any) {
                   {user.isAdmin && (
                     <Link href="https://github.com/Peppermint-Lab/peppermint/releases">
                       <span className="inline-flex items-center rounded-md bg-green-700/10 px-3 py-2 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-500/20">
-                        Version {process.env.NEXT_PUBLIC_CLIENT_VERSION}
+                        {t("common:nav.version")} {process.env.NEXT_PUBLIC_CLIENT_VERSION}
                       </span>
                     </Link>
                   )}
@@ -81,7 +81,7 @@ export default function ShadLayout({ children }: any) {
                         variant="outline"
                         className="text-foreground hover:cursor-pointer whitespace-nowrap"
                       >
-                        Send Feedback
+                        {t("common:nav.send_feedback")}
                       </Button>
                     </Link>
                   )}

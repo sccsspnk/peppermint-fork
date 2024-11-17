@@ -35,7 +35,7 @@ export default function PortalLayout({ children }: any) {
 
   if (location.pathname.includes("/admin") && user.isAdmin === false) {
     location.push("/");
-    alert(t("_layout_portal:warns.not_have_perms"));
+    alert(t("common:warns.not_have_perms"));
   }
 
   const navigation = [

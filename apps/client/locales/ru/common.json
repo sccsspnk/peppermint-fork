@@ -2,6 +2,10 @@
   "main": {
     "product_name": "Peppermint"
   },
+  "warns": {
+    "not_have_perms": "You do not have permission to perform this action",
+    "not_admin": "Ты не админ"
+  },
   "buttons": {
     "close": "Закрыть",
     "open": "Открыть"

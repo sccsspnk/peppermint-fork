@@ -1,15 +1,13 @@
 {
-  "menu": {
-    "create_ticket": "Создать тикет",
+  "options": {
+    "new_issue": "Новое обращение",
     "dashboard": "Панель",
+    "documents": "Документы",
     "issues": {
       "title": "Обращения",
       "open": "Открытые",
       "closed": "Закрытые"
     },
-    "settings": "Настройки"
-  },
-  "account_dropdown": {
-    "logout": "Выйти"
+    "admin_panel": "Админ-панель"
   }
 }

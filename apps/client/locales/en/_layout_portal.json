@@ -1,7 +1,4 @@
 {
-  "warns": {
-    "not_have_perms": "You do not have permission to perform this action"
-  },
   "menu": {
     "create_ticket": "Create Ticket",
     "dashboard": "Dashboard",
