@@ -1,0 +1,11 @@
+{
+  "title": "Мой аккаунт",
+  "options": {
+    "profile": "Профиль",
+    "settings": "Настройки",
+    "github": "Github",
+    "support": "Поддержка",
+    "api": "API",
+    "logout": "Выйти"
+  }
+}

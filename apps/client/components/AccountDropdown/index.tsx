@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/shadcn/ui/button";
+import useTranslation from "next-translate/useTranslation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,6 +39,7 @@ export function AccountDropdown() {
   const { user } = useUser();
 
   const router = useRouter();
+  const { t, lang } = useTranslation();
 
   async function logout() {
     const res = await fetch(`/api/v1/auth/user/${user.id}/logout`, {
@@ -62,7 +64,7 @@ export function AccountDropdown() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-4">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("_component_account_dropdown:title")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem
@@ -70,14 +72,14 @@ export function AccountDropdown() {
             onClick={() => router.push("/profile")}
           >
             <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
+            <span>{t("_component_account_dropdown:options.profile")}</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             className="hover:cursor-pointer"
             onClick={() => router.push("/settings/notifications")}
           >
             <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
+            <span>{t("_component_account_dropdown:options.settings")}</span>
           </DropdownMenuItem>
           {/* <DropdownMenuItem>
             <Keyboard className="mr-2 h-4 w-4" />
@@ -128,18 +130,18 @@ export function AccountDropdown() {
           }
         >
           <Github className="mr-2 h-4 w-4" />
-          <span>GitHub</span>
+          <span>{t("_component_account_dropdown:options.github")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           className="hover:cursor-pointer"
           onClick={() => router.push("https://discord.gg/XDxnWxCqnc")}
         >
           <LifeBuoy className="mr-2 h-4 w-4" />
-          <span>Support</span>
+          <span>{t("_component_account_dropdown:options.support")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem disabled>
           <Cloud className="mr-2 h-4 w-4" />
-          <span>API</span>
+          <span>{t("_component_account_dropdown:options.api")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
@@ -147,7 +149,7 @@ export function AccountDropdown() {
           onClick={() => logout()}
         >
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
+          <span>{t("_component_account_dropdown:options.logout")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
