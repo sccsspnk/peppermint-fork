@@ -260,7 +260,7 @@ export default function CreateTicketModal({ keypress, setKeyPressDown }) {
                     <input
                       type="text"
                       name="email"
-                      placeholder={t("common:auth.email")}
+                      placeholder={t("common:credentials.email")}
                       onChange={(e) => setEmail(e.target.value)}
                       className=" w-full pl-0 pr-0 text-foreground bg-background   sm:text-sm border-none focus:outline-none focus:shadow-none focus:ring-0 focus:border-none"
                     />

@@ -17,7 +17,7 @@ const fetchUsers = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  
+
   return res.json();
 };
 
@@ -266,14 +266,14 @@ export default function UserAuthPanel() {
         <div className="pt-10 pb-16 divide-y-2">
           <div className="px-4 sm:px-6 md:px-0">
             <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-              Internal Users
+              Agents
             </h1>
           </div>
           <div className="px-4 sm:px-6 md:px-0">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto mt-4">
                 <p className="mt-2 text-sm text-gray-700  dark:text-white">
-                  A list of all internal users of your instance.
+                  A list of all agents of your instance.
                 </p>
               </div>
               <div className="sm:ml-16 mt-5 sm:flex-none">

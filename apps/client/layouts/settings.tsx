@@ -55,7 +55,7 @@ export default function Settings({ children }) {
                     )}
                   >
                     <Flag className="flex-shrink-0  h-5 w-5 text-foreground" />
-                    <span>{t("_layout_settings:options.feature_flags")}</span>
+                    <span>{t("common:settings.feature_flags.title")}</span>
                   </Link>
 
                   <Link

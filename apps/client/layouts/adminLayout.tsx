@@ -44,7 +44,7 @@ export default function AdminLayout({ children }: any) {
 
   const navigation = [
     {
-      name: t("_layout_admin:menu.back"),
+      name: t("common:buttons.back"),
       href: "/",
       current: null,
       icon: MoveLeft,

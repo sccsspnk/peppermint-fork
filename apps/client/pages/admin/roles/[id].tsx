@@ -52,7 +52,7 @@ export default function UpdateRole() {
         setUsers(data.users);
       }
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.error("Error fetching agents:", error);
     }
     setIsLoading(false);
   };
@@ -224,7 +224,7 @@ export default function UpdateRole() {
               <div className="relative mb-4">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
                 <Input
-                  placeholder="Search users..."
+                  placeholder="Search agents..."
                   className="pl-8"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -232,7 +232,7 @@ export default function UpdateRole() {
               </div>
 
               {isLoading ? (
-                <div className="text-center py-4">Loading users...</div>
+                <div className="text-center py-4">Loading agents...</div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {filteredUsers.map((user) => (
@@ -262,7 +262,7 @@ export default function UpdateRole() {
 
               {!isLoading && filteredUsers.length === 0 && (
                 <div className="text-center py-4 text-gray-500">
-                  {searchTerm ? "No users found" : "No users available"}
+                  {searchTerm ? "No agents found" : "No agents available"}
                 </div>
               )}
             </div>

@@ -9,13 +9,14 @@
   "buttons": {
     "close": "Закрыть",
     "open": "Открыть",
-    "save": "Сохранить"
+    "save": "Сохранить",
+    "back": "Назад"
   },
   "options": {
     "enable": "Включить",
     "disable": "Отключить"
   },
-  "auth": {
+  "credentials": {
     "email": "Эл. почта",
     "password": "Пароль"
   },

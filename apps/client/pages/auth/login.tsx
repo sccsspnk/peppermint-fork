@@ -101,7 +101,7 @@ export default function Login({}) {
                   htmlFor="email"
                   className="block text-sm font-medium text-foreground"
                 >
-                  {t("common:auth.email")}
+                  {t("common:credentials.email")}
                 </label>
                 <div className="mt-1">
                   <input
@@ -126,7 +126,7 @@ export default function Login({}) {
                   htmlFor="password"
                   className="block text-sm font-medium text-foreground"
                 >
-                  {t("common:auth.password")}
+                  {t("common:credentials.password")}
                 </label>
                 <div className="mt-1">
                   <input

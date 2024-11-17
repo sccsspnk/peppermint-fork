@@ -250,7 +250,7 @@ export function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // Reset users password via code
+  // Reset agent password via code
   fastify.post(
     "/api/v1/auth/password-reset/password",
     async (request: FastifyRequest, reply: FastifyReply) => {
@@ -549,7 +549,7 @@ export function authRoutes(fastify: FastifyInstance) {
               email: userInfo.email,
               password: await bcrypt.hash(generateRandomPassword(12), 10), // Set a random password of length 12
               name: userInfo.name || "New User", // Use the name from userInfo or a default
-              isAdmin: false, // Set isAdmin to false for basic users
+              isAdmin: false, // Set isAdmin to false for basic agent
               language: "en", // Set a default language
               external_user: false, // Mark as external user
               firstLogin: true, // Set firstLogin to true
@@ -769,7 +769,7 @@ export function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // Reset Users password
+  // Reset agent password
   fastify.post(
     "/api/v1/auth/reset-password",
     async (request: FastifyRequest, reply: FastifyReply) => {
@@ -838,7 +838,7 @@ export function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // Update a users profile/config
+  // Update a agent profile/config
   fastify.put(
     "/api/v1/auth/profile",
     {
@@ -868,7 +868,7 @@ export function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // Update a users Email notification settings
+  // Update a agent Email notification settings
   fastify.put(
     "/api/v1/auth/profile/notifcations/emails",
     {
@@ -914,7 +914,7 @@ export function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // Update a users role
+  // Update a agent role
   fastify.put(
     "/api/v1/auth/user/role",
     {
@@ -1008,7 +1008,7 @@ export function authRoutes(fastify: FastifyInstance) {
 
       const { sessionId } = request.params as { sessionId: string };
 
-      // Only allow users to delete their own sessions
+      // Only allow agent to delete their own sessions
       const session = await prisma.session.findFirst({
         where: {
           id: sessionId,

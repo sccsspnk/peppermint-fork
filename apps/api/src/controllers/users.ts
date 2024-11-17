@@ -6,7 +6,7 @@ import { checkSession } from "../lib/session";
 import { prisma } from "../prisma";
 
 export function userRoutes(fastify: FastifyInstance) {
-  // All users
+  // All agent
   fastify.get(
     "/api/v1/users/all",
 

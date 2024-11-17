@@ -120,14 +120,14 @@ export default function ResetPassword({ user }) {
                         type="password"
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter users new password"
+                        placeholder="Enter new password"
                       />
 
                       <input
                         type="password"
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         onChange={(e) => setCheck(e.target.value)}
-                        placeholder="Confirm users password"
+                        placeholder="Confirm password"
                       />
                     </div>
                   </div>
