@@ -2,6 +2,7 @@ import { getCookie } from "cookies-next";
 import Link from "next/link";
 import React from "react";
 import { useQuery } from "react-query";
+import useTranslation from "next-translate/useTranslation";
 import {
   useFilters,
   useGlobalFilter,
@@ -92,6 +93,7 @@ function Table({ columns, data }) {
     useGlobalFilter,
     usePagination
   );
+  const { t } = useTranslation();
 
   return (
     <div className="overflow-x-auto md:-mx-6 lg:-mx-8">
@@ -201,6 +203,7 @@ function Table({ columns, data }) {
 
 export default function UserAuthPanel() {
   const token = getCookie("session");
+  const { t } = useTranslation();
   const { data, status, refetch } = useQuery("fetchAuthUsers", () =>
     fetchUsers(token)
   );
@@ -225,18 +228,18 @@ export default function UserAuthPanel() {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Name",
+        Header: t("admin_users_internal:table.columns.name"),
         accessor: "name",
         width: 10,
         id: "name",
       },
       {
-        Header: "Email",
+        Header: t("common:credentials.email"),
         accessor: "email",
         id: "email",
       },
       {
-        Header: "",
+        Header: t("admin_users_internal:table.columns.actions"),
         id: "actions",
         Cell: ({ row }) => {
           return (
@@ -249,7 +252,7 @@ export default function UserAuthPanel() {
                   onClick={() => deleteUser(row.original.id)}
                   className="inline-flex items-center px-4 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-white bg-red-700 hover:bg-red-500"
                 >
-                  Delete
+                  {t("common:buttons.delete")}
                 </button>
               )}
             </div>
@@ -266,14 +269,14 @@ export default function UserAuthPanel() {
         <div className="pt-10 pb-16 divide-y-2">
           <div className="px-4 sm:px-6 md:px-0">
             <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-              Agents
+              {t("admin_users_internal:page.title")}
             </h1>
           </div>
           <div className="px-4 sm:px-6 md:px-0">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto mt-4">
                 <p className="mt-2 text-sm text-gray-700  dark:text-white">
-                  A list of all agents of your instance.
+                  {t("admin_users_internal:page.subtitle")}
                 </p>
               </div>
               <div className="sm:ml-16 mt-5 sm:flex-none">
@@ -281,22 +284,21 @@ export default function UserAuthPanel() {
                   href="/admin/users/internal/new"
                   className="rounded bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
-                  New User
+                  {t("admin_users_internal:buttons.new_agent")}
                 </Link>
               </div>
             </div>
             <div className="py-4">
               {status === "loading" && (
                 <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
-                  <h2> Loading data ... </h2>
+                  <h2>{t("common:info.loading_data")}</h2>
                 </div>
               )}
 
               {status === "error" && (
                 <div className="min-h-screen flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8">
                   <h2 className="text-2xl font-bold">
-                    {" "}
-                    Error fetching data ...{" "}
+                    {t("common:info.loading_failed")}
                   </h2>
                 </div>
               )}
@@ -320,7 +322,7 @@ export default function UserAuthPanel() {
                             <dd className="text-gray-500 text-sm">
                               {user.email}
                             </dd>
-                            <dt className="sr-only">Role</dt>
+                            <dt className="sr-only">{t("admin_users_internal:table.action_buttons.change_role")}</dt>
                             <dd className="mt-3">
                               <span className="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
                                 {user.isAdmin ? "admin" : "user"}

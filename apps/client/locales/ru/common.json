@@ -6,11 +6,21 @@
     "not_have_perms": "You do not have permission to perform this action",
     "not_admin": "Ты не админ"
   },
+  "info": {
+    "loading_data": "Загрузка данных...",
+    "loading_failed": "Загрузка неуспешна"
+  },
+  "errors": {
+    "unknown": {
+      "title": "Ошибка"
+    }
+  },
   "buttons": {
     "close": "Закрыть",
     "open": "Открыть",
     "save": "Сохранить",
-    "back": "Назад"
+    "back": "Назад",
+    "delete": "Удалить"
   },
   "options": {
     "enable": "Включить",

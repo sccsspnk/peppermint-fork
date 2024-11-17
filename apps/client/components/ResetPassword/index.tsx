@@ -3,11 +3,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { getCookie } from "cookies-next";
 import { Fragment, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function ResetPassword({ user }) {
   const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState("");
+  const { t } = useTranslation();
 
   const postData = async () => {
     if (check === password && password.length > 3) {
@@ -27,22 +29,22 @@ export default function ResetPassword({ user }) {
           if (res.success) {
             toast({
               variant: "default",
-              title: "Password Reset Successful",
-              description: "The password has been updated successfully.",
+              title: t("admin_users_internal:info.password_changed.title"),
+              description: t("admin_users_internal:info.password_changed.desc"),
             });
           } else {
             toast({
               variant: "destructive",
-              title: "Uh oh! Something went wrong.",
-              description: "There was a problem with your request.",
+              title: t("admin_users_internal:error.password_change.title"),
+              description: t("admin_users_internal:error.password_change.title"),
             });
           }
         });
     } else {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Passwords do not match",
+        title: t("common:errors.unknown.title"),
+        description: t("admin_users_internal:error.password_not_match.desc"),
       });
     }
   };
@@ -59,7 +61,7 @@ export default function ResetPassword({ user }) {
         type="button"
         className="inline-flex items-center px-2.5 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
-        Reset Password
+        {t("admin_users_internal:table.action_buttons.change_password")}
       </button>
       <Transition.Root show={open} as={Fragment}>
         <Dialog
@@ -103,7 +105,7 @@ export default function ResetPassword({ user }) {
                     className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     onClick={() => setOpen(false)}
                   >
-                    <span className="sr-only">Close</span>
+                    <span className="sr-only">{t("common:nav.sidebar.close")}</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
@@ -113,21 +115,21 @@ export default function ResetPassword({ user }) {
                       as="h3"
                       className="text-lg leading-6 font-medium text-gray-900"
                     >
-                      Reset Password
+                      {t("admin_users_internal:form_password.title")}
                     </Dialog.Title>
                     <div className="mt-2 space-y-4">
                       <input
                         type="password"
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter new password"
+                        placeholder={t("admin_users_internal:form_password.placeholders.enter_password")}
                       />
 
                       <input
                         type="password"
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         onChange={(e) => setCheck(e.target.value)}
-                        placeholder="Confirm password"
+                        placeholder={t("admin_users_internal:form_password.placeholders.repeat_password")}
                       />
                     </div>
                   </div>
@@ -138,14 +140,14 @@ export default function ResetPassword({ user }) {
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => onCreate()}
                   >
-                    Update
+                    {t("common:buttons.save")}
                   </button>
                   <button
                     type="button"
                     className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
                     onClick={() => setOpen(false)}
                   >
-                    Cancel
+                    {t("common:buttons.close")}
                   </button>
                 </div>
               </div>

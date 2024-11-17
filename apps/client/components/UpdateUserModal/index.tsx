@@ -4,8 +4,10 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function UpdateUserModal({ user }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   const [admin, setAdmin] = useState(user.isAdmin);
@@ -29,13 +31,13 @@ export default function UpdateUserModal({ user }) {
         if (res.success === true) {
           toast({
             variant: "default",
-            title: "Success",
-            description: "User updated succesfully",
+            title: t("admin_users_internal:info.user_updated.title"),
+            description: t("admin_users_internal:info.user_updated.desc"),
           });
         } else {
           toast({
             variant: "destructive",
-            title: "Error",
+            title: t("common:errors.unknown.title"),
             description: res.message,
           });
         }
@@ -50,7 +52,7 @@ export default function UpdateUserModal({ user }) {
         type="button"
         className="inline-flex items-center px-4 py-1.5 border font-semibold border-gray-300 shadow-sm text-xs rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
-        Role
+        {t("admin_users_internal:table.action_buttons.change_role")}
       </button>
 
       <Transition.Root show={open} as={Fragment}>
@@ -94,7 +96,7 @@ export default function UpdateUserModal({ user }) {
                     className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     onClick={() => setOpen(false)}
                   >
-                    <span className="sr-only">Close</span>
+                    <span className="sr-only">{t("common:nav.sidebar.close")}</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
@@ -104,7 +106,7 @@ export default function UpdateUserModal({ user }) {
                       as="h3"
                       className="text-lg leading-6 font-medium text-gray-900"
                     >
-                      Edit User Role
+                      {t("admin_users_internal:form_role.title")}
                     </Dialog.Title>
                     <div className="mt-2 space-y-4">
                       <div className="">
@@ -119,7 +121,7 @@ export default function UpdateUserModal({ user }) {
                                   : "relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1"
                               }
                             >
-                              User
+                              {t("admin_users_internal:form_role.buttons.agent")}
                             </button>
                             <button
                               onClick={() => setAdmin(true)}
@@ -130,7 +132,7 @@ export default function UpdateUserModal({ user }) {
                                   : "relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1"
                               }
                             >
-                              Admin
+                              {t("admin_users_internal:form_role.buttons.admin")}
                             </button>
                           </span>
                         </div>
@@ -146,7 +148,7 @@ export default function UpdateUserModal({ user }) {
                       await updateUser();
                     }}
                   >
-                    Update
+                    {t("common:buttons.save")}
                   </button>
                 </div>
               </div>

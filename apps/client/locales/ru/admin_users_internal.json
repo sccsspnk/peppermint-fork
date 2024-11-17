@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Агенты поддержки",
+    "subtitle": "Список всех агентов поддержки"
+  },
+  "buttons": {
+    "new_agent": "Новый агент"
+  },
+  "table": {
+    "columns": {
+      "name": "Имя",
+      "actions": "Действия"
+    },
+    "action_buttons": {
+      "change_role": "Изменить роль",
+      "change_password": "Изменить пароль"
+    }
+  },
+  "info": {
+    "user_updated": {
+      "title": "Обновление параметров агента",
+      "desc": "Параметры агента обновлены"
+    },
+    "password_changed": {
+      "title": "Обновление пароля",
+      "desc": "Пароль обновлен успешно"
+    }
+  },
+  "error": {
+    "password_change": {
+      "title": "Обновление пароля",
+      "desc": "Возникла ошибка при выполнении вашего запроса"
+    },
+    "password_not_match": {
+        "desc": "Пароли не совпадают"
+      }
+  },
+  "form_role": {
+    "title": "Изменение роли",
+    "buttons": {
+      "agent": "Агент",
+      "admin": "Админ"
+    }
+  },
+  "form_password": {
+    "title": "Изменение пароля",
+    "placeholders": {
+      "enter_password": "Введите пароль",
+      "repeat_password": "Введите пароль повторно"
+    }
+  }
+}

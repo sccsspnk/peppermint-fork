@@ -27,6 +27,7 @@ module.exports = {
     "/onboarding": ["onboarding"],
     "rgx:^/admin.*": ["_layout_admin"],
     "rgx:^/portal.*": ["_layout_portal"],
+    "/admin/users/internal": ["admin_users_internal"]
   },
   localeDetection: true,
 };
